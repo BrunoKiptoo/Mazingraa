@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../assets/logo4.png';
+// import Logo from '../assets/logo4.png';
 
 
 function Login() {
@@ -32,10 +32,10 @@ function Login() {
   
       
     </div>
-    <div class="mt-8 text-center text-white font-semibold mt-40">
+    {/* <div class="mt-8 text-center text-white font-semibold mt-40">
         <p>For further support, you may visit the Help Center or contact our customer service team.</p>
         <img src={Logo} alt='logo' className="h-25 w-40 mx-auto mt-4" /> 
-      </div>
+      </div> */}
   </div>
   
   );

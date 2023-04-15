@@ -66,6 +66,7 @@
 
 import React, { useState } from 'react';
 
+
 function GeneralRegistration() {
   const [formData, setFormData] = useState({
     email: '',
@@ -224,6 +225,8 @@ function GeneralRegistration() {
 </form>
 
             </div>
+
+           
             </div>
             );
             }
