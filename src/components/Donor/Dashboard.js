@@ -161,7 +161,7 @@ function Dashboard() {
           </div>
           {/* Sidebar Toggle Button */}
           <div
-            className="fixed top-1/2 right-0 -translate-y-1/2 transform bg-gray-200 p-2 cursor-pointer"
+            className="fixed top-1/2 right-0 -translate-y-1/2 transform bg-black p-2 cursor-pointer"
             onClick={handleSidebarToggle}
             title={isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
           >

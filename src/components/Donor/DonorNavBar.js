@@ -3,12 +3,12 @@ import React from 'react';
 function DonorNavBar(props) {
   return (
     <nav className="bg-[#464931] text-white py-2 rounded-lg"> {/* Update rounded class to "rounded-lg" */}
-      <div className="flex justify-between items-center px-4">
+      <div className="flex justify-center items-center px-4">
         <ul className="flex items-center space-x-4">
           <li className="list-none">
-            <a href="/donor-dashboard" className="bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] font-semibold py-2 px-4 rounded-full">
+            {/* <a href="/donor-dashboard" className="bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] font-semibold py-2 px-4 rounded-full">
               Home
-            </a>
+            </a> */}
           </li>
           <li className="list-none">
             {/* <Search /> */}
