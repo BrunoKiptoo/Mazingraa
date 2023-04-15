@@ -118,13 +118,13 @@ function GeneralRegistration() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-md shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6">Registration</h2>
+    <div className="flex justify-center items-center min-h-screen bg2 ">
+      <div className=" p-8 rounded-md shadow-md w-full max-w-md bg-[#9bbf7f]">
+        <h2 className="text-2xl font-bold mb-6 text-yellow-500">Registration</h2>
         <form onSubmit={handleSubmit}>
   <div className="mb-4">
     <label htmlFor="email" className="block mb-2 font-medium">
-      Email
+      
     </label>
     <input
       type="email"
@@ -140,8 +140,8 @@ function GeneralRegistration() {
     {errors.email && <p className="text-red-500 mt-1">{errors.email}</p>}
   </div>
   <div className="mb-4">
-    <label htmlFor="password" className="block mb-2 font-medium">
-      Password
+    <label htmlFor="password" className="block mb-7 font-medium">
+      
     </label>
     <input
       type="password"
@@ -158,8 +158,8 @@ function GeneralRegistration() {
   </div>
   {formData.registrationType === 'organization' && (
   <div className="mb-4">
-    <label htmlFor="confirmPassword" className="block mb-2 font-medium">
-      Confirm Password
+    <label htmlFor="confirmPassword" className="block mb-7 font-medium">
+      
     </label>
     <input
       type="password"
@@ -180,8 +180,8 @@ function GeneralRegistration() {
 
 {formData.registrationType === 'donor' && (
   <div className="mb-4">
-    <label htmlFor="confirmDonorPassword" className="block mb-2 font-medium">
-      Confirm Password
+    <label htmlFor="confirmDonorPassword" className="block mb-7 font-medium">
+      
     </label>
     <input
       type="password"
@@ -214,9 +214,13 @@ function GeneralRegistration() {
       <option value="organization">Organization</option>
     </select>
   </div>
-  <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md">
+  <button type="submit" className="w-full bg-yellow-500 text-white py-2 px-4 rounded-md">
     Register
   </button>
+  <div className="mt-4 text-center">
+        <p>Already have an account?<a href="/login" className="font-semibold hover:underline">
+           Login</a></p>
+      </div>
 </form>
 
             </div>

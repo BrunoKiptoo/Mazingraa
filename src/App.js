@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" Component={LandingPage} /> 
           <Route exact path="/login" Component={Login} /> 
-          <Route exact path="/donorregistration" Component={RegistrationForm} />
+          <Route exact path="/donorregistration" Component={GeneralRegistrationForm} />
           <Route exact path="/learnmore" Component={LearnMore} /> 
           <Route exact path="/registration" Component={GeneralRegistrationForm} /> 
           <Route exact path="/password-reset" Component={PasswordReset} /> 
