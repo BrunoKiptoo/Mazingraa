@@ -2,7 +2,7 @@ import React from 'react';
 
 function DonorNavBar(props) {
   return (
-    <nav className="bg-black text-white py-2 rounded-lg"> {/* Update rounded class to "rounded-lg" */}
+    <nav className="bg-[#464931] text-white py-2 rounded-lg"> {/* Update rounded class to "rounded-lg" */}
       <div className="flex justify-between items-center px-4">
         <ul className="flex items-center space-x-4">
           <li className="list-none">

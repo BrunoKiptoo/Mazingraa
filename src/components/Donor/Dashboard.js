@@ -47,7 +47,7 @@ function Dashboard() {
           {isSidebarOpen && (
             <div className="w-1/5 bg-gray-200">
               {/* Sidebar Container */}
-              <div className="flex flex-col h-full p-4 ">
+              <div className="flex flex-col h-full p-4  sidebar-container ">
                 {/* Profile Picture */}
               {/* Profile Picture */}
 <div className="flex items-center justify-center mb-4">
@@ -88,7 +88,7 @@ function Dashboard() {
                     className="w-full mb-2 px-2 py-1 rounded-md"
                   />
                 ) : (
-                  <p className="text-gray-600 text-lg font-medium mb-2">{name}</p>
+                  <p className="text-white text-lg font-medium mb-2">{name}</p>
                 )}
 
                 {/* Email */}
@@ -100,44 +100,44 @@ function Dashboard() {
                     className="w-full mb-4 px-2 py-1 rounded-md"
                   />
                 ) : (
-                  <p className="text-gray-600">{email}</p>
+                  <p className="text-white mb-5">{email}</p>
                 )}
 
                 {/* Edit Icon */}
                 {isEditFormOpen ? (
                   <button
-                    className="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md"
+                    className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md"
                     onClick={handleSaveClick}
                   >
                     Save
                   </button>
                 ) : (
                   <button
-                    className="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md mb-9"
+                    className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-9"
                     onClick={handleEditClick}
                   >
                     Edit
                   </button>
                 )}
                <div class="flex flex-col h-full p-4">
-  <a href="/new-donation" class="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md mb-4">New-Donation</a>
-  <a href="/history" class="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md mb-4">History</a>
-  <a href="/reminder" class="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md mb-4">Reminder</a>
-  <a href="/beneficiary-stories" class="py-2 mb-2 bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md">Beneficiary Stories</a>
-  <a href="/login" class="py-2 mb-2 mt-auto bg-white hover:bg-gray-100 text-gray-600 text-lg font-medium rounded-md">Logout</a>
+  <a href="/new-donation" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">New-Donation</a>
+  <a href="/history" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">History</a>
+  <a href="/reminder" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">Reminder</a>
+  <a href="/beneficiary-stories" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">Beneficiary Stories</a>
+  <a href="/login" class="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">Logout</a>
 </div>
 
             </div>
             </div>
           )}
           
-          <div className="flex-grow flex flex-col">
-            <div className="flex-none">
+          <div className="flex-grow flex flex-col ">
+            <div className="flex-none ">
               <DonorNavBar name={name} />
             </div>
             <div className="flex-grow">
               <div className="flex items-center justify-center h-full">
-                <h1 className="text-3xl text-gray-600">Main Content</h1>
+                <h1 className="text-3xl text-orange-600">Main Content</h1>
               </div>
             </div>
             <div className="flex-none">
@@ -154,7 +154,7 @@ function Dashboard() {
                   </span>
                 </div>
                 <div>
-                  <span className="text-gray-600">© 2023 Mazingira. All rights reserved.</span>
+                  <span className="text-gray-600 ">© 2023 Mazingira. All rights reserved.</span>
                 </div>
               </div>
             </div>
