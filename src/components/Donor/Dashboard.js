@@ -54,7 +54,7 @@ function Dashboard() {
   <img
     src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     alt="Profile Picture"
-    className="w-16 h-16 rounded-full"
+    className="w-30 h-20 rounded-full"
   />
 </div>
 
@@ -67,7 +67,7 @@ function Dashboard() {
       onChange={(e) => handleProfilePictureChange(e)}
       className="w-full mb-2 px-2 py-1 rounded-md"
     />
-    <p className="text-gray-600 mb-4">or</p>
+    <p className="text-white mb-4">or</p>
     <input
       type="text"
       placeholder="Enter Image URL"
