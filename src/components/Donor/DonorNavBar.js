@@ -1,12 +1,12 @@
 import React from 'react';
 
-function DonorNavBar(props) { // Update prop name to "name"
+function DonorNavBar(props) {
   return (
-    <nav className="bg-black text-white py-2">
+    <nav className="bg-black text-white py-2 rounded-lg"> {/* Update rounded class to "rounded-lg" */}
       <div className="flex justify-between items-center px-4">
         <ul className="flex items-center space-x-4">
           <li className="list-none">
-            <a href="/donor-dashboard" className="bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] font-semibold py-2 px-4 rounded ">
+            <a href="/donor-dashboard" className="bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] font-semibold py-2 px-4 rounded-full">
               Home
             </a>
           </li>
@@ -18,7 +18,7 @@ function DonorNavBar(props) { // Update prop name to "name"
           </li>
         </ul>
         <div className="p-4">
-          <p>Hello, {props.name}! Welcome to your dashboard! Here you can manage your account settings, view your donations, and more.</p> {/* Update prop name to "name" */}
+          <p>Hello, {props.name}! Welcome to your dashboard! Here you can manage your account settings, view your donations, and more.</p>
         </div>
       </div>
     </nav>

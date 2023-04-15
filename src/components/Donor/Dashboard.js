@@ -40,13 +40,14 @@ function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+   
+    <div className="flex flex-col min-h-screen bg-fff5e1">
       <div className="flex-grow">
         <div className="flex h-screen">
           {isSidebarOpen && (
             <div className="w-1/5 bg-gray-200">
               {/* Sidebar Container */}
-              <div className="flex flex-col h-full p-4">
+              <div className="flex flex-col h-full p-4 ">
                 {/* Profile Picture */}
               {/* Profile Picture */}
 <div className="flex items-center justify-center mb-4">
@@ -183,6 +184,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
+  
   );
 }
 export default Dashboard;

@@ -55,3 +55,20 @@ body {
   background-position: center center; /* Center the image vertically and horizontally */
   background-repeat: no-repeat; /* Prevent the image from repeating */
 }
+
+
+
+/* Update the CSS for the sidebar container */
+.sidebar-container {
+  position: fixed; /* Fix the position of the sidebar */
+  top: 0; /* Set the top position to 0 */
+  bottom: 0; /* Set the bottom position to 0 */
+  left: 0; /* Set the left position to 0 */
+  z-index: 1000; /* Set the z-index to a higher value to make sure it's on top of other elements */
+  width: 20%; /* Set the width of the sidebar */
+  background-color: #fff5e1; /* Set the background color of the sidebar */
+  border-radius: 20px; /* Set the border radius to create smooth edges */
+  padding: 20px; /* Add padding to the sidebar */
+  overflow-y: auto; /* Add vertical scrollbar if content overflows */
+  transition: width 0.3s ease; /* Add transition for smooth animation */
+}
