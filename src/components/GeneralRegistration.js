@@ -157,26 +157,48 @@ function GeneralRegistration() {
     {errors.password && <p className="text-red-500 mt-1">{errors.password}</p>}
   </div>
   {formData.registrationType === 'organization' && (
-    <div className="mb-4">
-      <label htmlFor="confirmPassword" className="block mb-2 font-medium">
-        Confirm Password
-      </label>
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        value={formData.confirmPassword}
-        onChange={handleInputChange}
-        className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${
-          errors.confirmPassword ? 'border-red-500' : ''
-        }`}
-        placeholder="Confirm Password"
-      />
-      {errors.confirmPassword && (
-        <p className="text-red-500 mt-1">{errors.confirmPassword}</p>
-      )}
-    </div>
-  )}
+  <div className="mb-4">
+    <label htmlFor="confirmPassword" className="block mb-2 font-medium">
+      Confirm Password
+    </label>
+    <input
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      value={formData.confirmPassword}
+      onChange={handleInputChange}
+      className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${
+        errors.confirmPassword ? 'border-red-500' : ''
+      }`}
+      placeholder="Confirm Password"
+    />
+    {errors.confirmPassword && (
+      <p className="text-red-500 mt-1">{errors.confirmPassword}</p>
+    )}
+  </div>
+)}
+
+{formData.registrationType === 'donor' && (
+  <div className="mb-4">
+    <label htmlFor="confirmDonorPassword" className="block mb-2 font-medium">
+      Confirm Password
+    </label>
+    <input
+      type="password"
+      id="confirmDonorPassword"
+      name="confirmDonorPassword"
+      value={formData.confirmDonorPassword}
+      onChange={handleInputChange}
+      className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${
+        errors.confirmDonorPassword ? 'border-red-500' : ''
+      }`}
+      placeholder="Confirm Password"
+    />
+    {errors.confirmDonorPassword && (
+      <p className="text-red-500 mt-1">{errors.confirmDonorPassword}</p>
+    )}
+  </div>
+)}
   <div className="mb-4">
     <label htmlFor="registrationType" className="block mb-2 font-medium">
       Registration Type
