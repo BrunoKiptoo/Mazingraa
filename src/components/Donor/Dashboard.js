@@ -54,7 +54,7 @@ function Dashboard() {
           {isSidebarOpen && (
             <div className="w-1/5 bg-gray-200">
               {/* Sidebar Container */}
-              <div className="flex flex-col h-full p-4  sidebar-container ">
+              <div className="flex flex-col h-full p-4  bg-[#464931] ">
                 {/* Profile Picture */}
               {/* Profile Picture */}
 <div className="flex items-center justify-center mb-4">
