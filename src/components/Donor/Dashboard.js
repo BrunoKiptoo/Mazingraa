@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGithub, FaLinkedin, FaTwitter, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaChevronLeft, FaChevronRight, FaDonate, FaHistory, FaBell, FaHeart, FaEdit } from 'react-icons/fa';
 
 import DonorNavBar from './DonorNavBar';
 import HistoryContent from './HistoryContent';
@@ -120,37 +120,42 @@ function Dashboard() {
                   </button>
                 ) : (
                   <button
-                    className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-9"
-                    onClick={handleEditClick}
-                  >
-                    Edit
-                  </button>
+                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-9 flex items-center justify-center"
+                  onClick={handleEditClick}
+                >
+                  <FaEdit className="mr-2" />
+                  Edit
+                </button>
                 )}
                <div class="flex flex-col h-full p-4">
 
-               <button
-                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
-                  onClick={() => setSelectedContent('new-donation')}>
-              New-Donation
-              </button>
+  <button
+  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
+  onClick={() => setSelectedContent('new-donation')}>
+  <FaDonate className="mr-2" />
+  <span>New Donation</span>
+</button>
 
-              <button
-                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
-                  onClick={() => setSelectedContent('history')}>
-              History
-              </button>
+<button
+  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
+  onClick={() => setSelectedContent('history')}>
+  <FaHistory className="mr-2" />
+  <span>History</span>
+</button>
 
-              <button
-                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
-                  onClick={() => setSelectedContent('reminder')}>
-              Reminder
-              </button>
+<button
+  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
+  onClick={() => setSelectedContent('reminder')}>
+  <FaBell className="mr-2" />
+  <span>Reminder</span>
+</button>
 
-              <button
-              className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md "
-              onClick={() => setSelectedContent('beneficiary-stories')}>
-              Beneficiary Stories
-              </button>
+<button
+  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md flex items-center justify-center"
+  onClick={() => setSelectedContent('beneficiary-stories')}>
+  <FaHeart className="mr-2" />
+  <span>Beneficiary Stories</span>
+</button>
 
               <a href="/login" 
               className="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">
