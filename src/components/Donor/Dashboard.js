@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGithub, FaLinkedin, FaTwitter, FaChevronLeft, FaChevronRight, FaDonate, FaHistory, FaBell, FaHeart, FaEdit } from 'react-icons/fa';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaFacebook, FaInstagram, FaTwitter, FaChevronLeft, FaChevronRight, FaDonate, FaHistory, FaBell, FaHeart, FaEdit, FaSignOutAlt } from 'react-icons/fa';
 
 import DonorNavBar from './DonorNavBar';
 import HistoryContent from './HistoryContent';
@@ -158,8 +158,9 @@ function Dashboard() {
 </button>
 
               <a href="/login" 
-              className="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">
-              Logout
+              className="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md flex items-center justify-center ">
+                 <FaSignOutAlt className="mr-2" />
+              <span>Logout</span>
               </a>
               </div>
 
@@ -185,10 +186,10 @@ function Dashboard() {
             <div className="flex items-center justify-between bg-gray-200 p-4">
   <div className="flex items-center">
     <span className="mr-4">
-      <FaGithub className="text-2xl text-gray-600" />
+      <FaFacebook className="text-2xl text-gray-600" />
     </span>
     <span className="mr-4">
-      <FaLinkedin className="text-2xl text-gray-600" />
+      <FaInstagram className="text-2xl text-gray-600" />
     </span>
     <span>
       <FaTwitter className="text-2xl text-gray-600" />
