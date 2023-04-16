@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaGithub, FaLinkedin, FaTwitter, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 import DonorNavBar from './DonorNavBar';
+import HistoryContent from './HistoryContent';
+import NewDonationContent from './NewDonationContent';
+import BeneficiaryStoriesContent from './BeneficiaryStoriesContent ';
+import ReminderContent from './ReminderContent';
 
 function Dashboard() {
 
@@ -38,6 +42,9 @@ function Dashboard() {
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const [selectedContent, setSelectedContent] = useState(null);
+
 
   return (
    
@@ -120,12 +127,36 @@ function Dashboard() {
                   </button>
                 )}
                <div class="flex flex-col h-full p-4">
-  <a href="/new-donation" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">New-Donation</a>
-  <a href="/history" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">History</a>
-  <a href="/reminder" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4">Reminder</a>
-  <a href="/beneficiary-stories" class="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">Beneficiary Stories</a>
-  <a href="/login" class="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">Logout</a>
-</div>
+
+               <button
+                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
+                  onClick={() => setSelectedContent('new-donation')}>
+              New-Donation
+              </button>
+
+              <button
+                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
+                  onClick={() => setSelectedContent('history')}>
+              History
+              </button>
+
+              <button
+                  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4"
+                  onClick={() => setSelectedContent('reminder')}>
+              Reminder
+              </button>
+
+              <button
+              className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md "
+              onClick={() => setSelectedContent('beneficiary-stories')}>
+              Beneficiary Stories
+              </button>
+
+              <a href="/login" 
+              className="py-2 mb-2 mt-auto bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md ">
+              Logout
+              </a>
+              </div>
 
             </div>
             </div>
@@ -136,6 +167,11 @@ function Dashboard() {
               <DonorNavBar name={name} />
             </div>
             <div className="flex-grow">
+              {/* Render content based on selectedContent */}
+    {selectedContent === 'new-donation' && <NewDonationContent />}
+    {selectedContent === 'history' && <HistoryContent />}
+    {selectedContent === 'reminder' && <ReminderContent />}
+    {selectedContent === 'beneficiary-stories' && <BeneficiaryStoriesContent />}
               <div className="flex items-center justify-center h-full">
                 <h1 className="text-3xl text-orange-600">Main Content</h1>
               </div>
@@ -160,27 +196,25 @@ function Dashboard() {
             </div>
           </div>
           {/* Sidebar Toggle Button */}
-          <div
-            className="fixed top-1/2 right-0 -translate-y-1/2 transform bg-black p-2 cursor-pointer"
-            onClick={handleSidebarToggle}
-            title={isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
-          >
-            <span
-              className="text-gray-600 text-sm absolute right-0 top-full transform translate-x-1/2 bg-gray-100 px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              {isSidebarOpen ? (
-                <span>
-                  Hide Sidebar
-                  <FaChevronLeft className="inline-block ml-1" />
-                </span>
-               ) : (
-                <span>
-                  Show Sidebar
-                  <FaChevronRight className="inline-block ml-1" />
-                </span>
-              )}
-            </span>
-          </div>
+          <div className='fixed right-0 bottom-1/2 mr-1 mb-4 p-2 flex items-center bg-gray-600 rounded-full cursor-pointer'>
+  <span
+    className="text-gray-600 text-sm absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-100 px-2 py-1 rounded-md"
+    onClick={handleSidebarToggle}
+    title={isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
+  >
+    {isSidebarOpen ? (
+      <span>
+        Hide Sidebar
+        <FaChevronLeft className="inline-block ml-1" />
+      </span>
+     ) : (
+      <span>
+        Show Sidebar
+        <FaChevronRight className="inline-block ml-1" />
+      </span>
+    )}
+  </span>
+</div>
         </div>
       </div>
     </div>
@@ -188,7 +222,6 @@ function Dashboard() {
   );
 }
 export default Dashboard;
-
 
 
 
