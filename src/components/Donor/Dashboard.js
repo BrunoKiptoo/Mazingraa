@@ -182,22 +182,23 @@ function Dashboard() {
               </div>
             </div>
             <div className="flex-none">
-              <div className="flex items-center justify-between bg-gray-200 p-4">
-                <div>
-                  <span className="mr-4">
-                    <FontAwesomeIcon icon={FaGithub} className="text-2xl text-gray-600" />
-                  </span>
-                  <span className="mr-4">
-                    <FontAwesomeIcon icon={FaLinkedin} className="text-2xl text-gray-600" />
-                  </span>
-                  <span>
-                    <FontAwesomeIcon icon={FaTwitter} className="text-2xl text-gray-600" />
-                  </span>
-                </div>
-                <div>
-                  <span className="text-gray-600 ">© 2023 Mazingira. All rights reserved.</span>
-                </div>
-              </div>
+            <div className="flex items-center justify-between bg-gray-200 p-4">
+  <div className="flex items-center">
+    <span className="mr-4">
+      <FaGithub className="text-2xl text-gray-600" />
+    </span>
+    <span className="mr-4">
+      <FaLinkedin className="text-2xl text-gray-600" />
+    </span>
+    <span>
+      <FaTwitter className="text-2xl text-gray-600" />
+    </span>
+  </div>
+  <div>
+    <span className="text-gray-600 ">© 2023 Mazingira. All rights reserved.</span>
+  </div>
+</div>
+
             </div>
           </div>
           {/* Sidebar Toggle Button */}
