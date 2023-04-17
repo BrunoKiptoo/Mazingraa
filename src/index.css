@@ -72,3 +72,20 @@ body {
   overflow-y: auto; /* Add vertical scrollbar if content overflows */
   transition: width 0.3s ease; /* Add transition for smooth animation */
 }
+
+
+
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Update margin-left to 1/5th of the viewport width */
+.ml-8 {
+  margin-left: 20vw; /* 20% of viewport width */
+}
+
+/* Footer occupies remaining space and avoids overlapping */
+.flex-none {
+  flex: none;
+}
