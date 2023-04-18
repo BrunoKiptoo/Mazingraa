@@ -6,6 +6,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
     const [isDonated, setIsDonated] = useState(false);
     const [orgData, setOrgData] = useState(organization);
     const [addedToDonationList, setAddedToDonationList] = useState(false);
+    
     // Define state for modal visibility
    
 
@@ -22,41 +23,43 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       setAddedToDonationList(true);
     };
   
-    useEffect(() => {
-      // Fetch organization data from backend API
-      const fetchData = async () => {
-        try {
-          if (orgData?.id) {
-            const response = await fetch(`http://localhost:5000/organizations/${orgData?.id}`);
-            const data = await response.json();
-            // Update state with fetched data
-            // Replace the property names below with the corresponding properties in your backend API response
-            setOrgData({
-              id: data?.id,
-              logo: data?.logo,
-              image: data?.image,
-              name: data?.name,
-              description: data?.description,
-              email: data?.email,
-              website: data?.website,
-              contactPerson: data?.contactPerson
-            });
-          }
-        } catch (error) {
-          console.error('Failed to fetch organization data:', error);
-        }
-      };
+    // useEffect(() => {
+    //   // Fetch organization data from backend API
+    //   const fetchData = async () => {
+    //     try {
+    //       if (orgData?.id) {
+    //         const response = await fetch(`http://localhost:5000/organizations/${orgData?.id}`);
+    //         const data = await response.json();
+    //         // Update state with fetched data
+    //         // Replace the property names below with the corresponding properties in your backend API response
+    //         setOrgData({
+    //           id: data?.id,
+    //           logo: data?.logo,
+    //           image: data?.image,
+    //           name: data?.name,
+    //           description: data?.description,
+    //           email: data?.email,
+    //           website: data?.website,
+    //           contactPerson: data?.contactPerson
+    //         });
+    //       }
+    //     } catch (error) {
+    //       console.error('Failed to fetch organization data:', error);
+    //     }
+    //   };
   
-      fetchData();
-    }, [orgData?.id]); // Update the dependency here
+    //   fetchData();
+    // }, [orgData?.id]); // Update the dependency here
 
     
   
-    // Add a check for organization object before accessing its properties
-    if (!organization) {
-      return null; // or return a default UI if needed
-    }
+    // // Add a check for organization object before accessing its properties
+    // if (!organization) {
+    //   return null; // or return a default UI if needed
+    // }
   
+    
+ 
 
   return (
     

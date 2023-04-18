@@ -23,7 +23,7 @@ function Dashboard() {
   const [profilePicture, setProfilePicture] = useState("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80");
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
-  const [organizations, setOrganizations] = useState([]);
+  const [organizations, setorganizations] = useState([]);
  
 
 
@@ -66,22 +66,21 @@ function Dashboard() {
   };
 
 
-      useEffect(() => {
-        // Fetch organizations data from backend API
-        const fetchData = async () => {
-          try {
-            const response = await fetch('http://localhost:5000/organizations');
-            const data = await response.json();
-            // Update state with fetched data
-            setOrganizations(data);
-          } catch (error) {
-            console.error('Failed to fetch organizations data:', error);
-          }
-        };
-    
-        fetchData();
-      }, []); 
+  useEffect(() => {
+    // Fetch organizations data from backend API
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/organizations');
+        const data = await response.json();
+        // Update state with fetched data
+        setorganizations(data);
+      } catch (error) {
+        console.error('Failed to fetch organizations data:', error);
+      }
+    };
 
+    fetchData();
+  }, []); 
 
   return (
    
@@ -109,7 +108,7 @@ function Dashboard() {
            <div className="w-full md:w-1/5 bg-gray-200 flex-1 fixed top-0 bottom-0 left-0">
            {/* w-1/5 bg-gray-200 flex-1 fixed top-0 bottom-0 left-0 */}
           
-           <div className="flex flex-col  h-full p-4  bg-[#464931] ">
+           <div className="flex flex-col h-full p-4  bg-[#464931] ">
 
              {/* Profile Picture ******************************************************************************************************/}
 
@@ -274,9 +273,9 @@ onClick={() => setSelectedContent('beneficiary-stories')}>
 
 {/* ******These is where the props are passed from their imported components *************************************************************************************************** */}
 
-<div className='md:pl-80'>
+<div className=' md:pl-80'>
 
-<div className=" flex-grow flex flex-col py-16 w-full overflow-y-auto">
+<div className=" flex-grow flex flex-col py-16  mr-5 overflow-y-auto">
 {/* md:pl-80 */}
 
 {/*******************NewDonation Content ********************************************** */}
