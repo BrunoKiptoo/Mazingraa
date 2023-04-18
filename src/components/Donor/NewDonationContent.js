@@ -57,17 +57,13 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       return null; // or return a default UI if needed
     }
   
-   
-  
-
-
 
   return (
     
-     
-    <div className="flex-1 mr-6 mt-8">
+     <div className=' '>
+    <div className="flex-1 mr-6  mt-6">
     {/* md:pl-80  */}
-    <div className="w-full  md:pl-80  flex-grow"> {/* Update container width to occupy the rest of the page after the sidebar */}
+    <div className=""> {/* Update container width to occupy the rest of the page after the sidebar */}
       <div className="flex">
         {/* <img className="object-cover object-center h-24 w-24" src={orgData.image} alt="Organization Image" /> Add image on the left side outside the container card */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4 flex-grow ml-4"> {/* Add margin left to separate the image from the container card */}
@@ -103,10 +99,15 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       </div>
     </div>
   </div>
-  
+  </div>
   
   );
 }
 
 export default NewDonationContent;
+
+
+
+
+
 

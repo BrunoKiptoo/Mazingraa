@@ -89,3 +89,16 @@ body {
 .flex-none {
   flex: none;
 }
+
+
+
+
+/* Styles for footer when sidebar is not minimized */
+.footer-expanded {
+  width: 80%; /* Change the width to the desired value */
+}
+
+/* Styles for footer when sidebar is minimized */
+.footer-collapsed {
+  width: 100%; /* Change the width to the desired value */
+}
