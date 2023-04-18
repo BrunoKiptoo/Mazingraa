@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './index.css';
@@ -14,7 +14,10 @@ import OrganizationDahboard from '../src/components/Organization/Dashboard';
 // import NewDonationContent from './components/Donor/NewDonationContent';
 
 
+
 function App() {
+
+
   return (
     <div className="App">
       <Router> 
@@ -33,10 +36,14 @@ function App() {
 
         
           {/* Add other routes for other components */}
+        
         </Routes>
         {/* <DonorNavBar/> */}
         {/* <NewDonationContent/> */}
+        
+        
       </Router>
+
       
         {/* <div className="my-custom-class"></div> */}
     </div>

@@ -1,9 +1,11 @@
 
 
+
+
 import React, { useState, useEffect } from 'react';
 
 
-function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
+function BeneficiaryStoriesContent({ organization, onDonate, onAddToDonationList }) {
     const [isDonated, setIsDonated] = useState(false);
     const [orgData, setOrgData] = useState(organization);
     const [addedToDonationList, setAddedToDonationList] = useState(false);
@@ -71,7 +73,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
   );
 }
 
-export default NewDonationContent;
+export default BeneficiaryStoriesContent;
 
 
 

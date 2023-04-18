@@ -4,16 +4,27 @@ import DonorNavBar from './DonorNavBar';
 import Footer from './Footer';
 import HistoryContent from './HistoryContent';
 import NewDonationContent from './NewDonationContent';
-import BeneficiaryStoriesContent from './BeneficiaryStoriesContent ';
+import BeneficiaryStoriesContent from './BeneficiaryStoriesContent';
 import ReminderContent from './ReminderContent';
-import NewDonationModal from './NewDonationModal';
+import NewDonationModal from './DonorModals.js/NewDonationModal';
+import HistoryModal from './DonorModals.js/HistoryModal';
+import BeneficiaryModal from './DonorModals.js/BeneficiaryModal';
+import ReminderModal from './DonorModals.js/ReminderModal';
+
+
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {FaDonate, FaHistory, FaBell, FaHeart, FaEdit, FaSignOutAlt } from 'react-icons/fa';
 
 
 
 
+
 function Dashboard() {
+
+ 
+
+
+
 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -24,6 +35,16 @@ function Dashboard() {
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
   const [organizations, setorganizations] = useState([]);
+  const [donationHistory, setDonationHistory] = useState([]);
+
+  
+
+  // Callback function to handle donation data
+  const handleDonation = (donationData) => {
+    // Add the donationData to the historyData array
+    setHistoryData([...historyData, donationData]);
+  };
+  
  
 
 
@@ -56,14 +77,27 @@ function Dashboard() {
   };
 
   const handleDonate = (organizationId) => {
-      // Implement your logic for handling donation here
-        console.log(`Donating to organization with id: ${organizationId}`);
+    // Implement your logic for handling donation here
+    console.log(`Donating to organization with id: ${organizationId}`);
+  
+    // Find the organization data from organizations state using organizationId
+    const organization = organizations.find(org => org.id === organizationId);
+  
+    // Add the organization data to donationHistory array
+    setDonationHistory(prevHistory => [...prevHistory, organization]);
   };
+
     
   const handleAddToDonationList = (organizationId) => {
-        // Implement your logic for adding to donation list here
-        console.log(`Adding organization with id: ${organizationId} to donation list`);
-  };
+  // Implement your logic for adding to donation list here
+  console.log(`Adding to donation list: ${organizationId}`);
+
+  // Find the organization data from organizations state using organizationId
+  const organization = organizations.find(org => org.id === organizationId);
+
+  // Add the organization data to donationHistory array
+  setDonationHistory(prevHistory => [...prevHistory, organization]);
+};
 
 
   useEffect(() => {
@@ -81,6 +115,24 @@ function Dashboard() {
 
     fetchData();
   }, []); 
+
+  const [showHistory, setShowHistory] = useState(false);
+  const [historyData, setHistoryData] = useState([]);
+
+  // Handler for "History" button click
+  const handleHistoryButtonClick = () => {
+    // Fetch history data from backend API
+    // Replace the fetch URL with your backend API endpoint to fetch donation history data
+    fetch('http://localhost:5000/history')
+      .then(response => response.json())
+      .then(data => {
+        // Update state with fetched history data
+        setHistoryData(data);
+        // Show the history content
+        setShowHistory(true);
+      })
+      .catch(error => console.error('Failed to fetch donation history:', error));
+  };
 
   return (
    
@@ -210,11 +262,13 @@ onClick={handleNewDonationClick} // Add the onClick event handler here
 {/* ***********************************************History Button*************************************************************** */}
 
 <button
-className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
-onClick={() => setSelectedContent('history')}>
-<FaHistory className="mr-2" />
-<span>History</span>
+  className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
+ onClick={() => setSelectedContent('history')}>
+  <FaHistory className="mr-2" />
+  <span>History</span>
 </button>
+
+
 
 {/* ***********************************************End of History Button*************************************************************** */}
 
@@ -301,7 +355,18 @@ onAddToDonationList={handleAddToDonationList}
 
 {/*******************HISTORY Content ********************************************** */}
 <div>
-{selectedContent === 'history' && <HistoryContent />}
+{selectedContent === 'history' && 
+organizations.map((org) => (
+<HistoryContent 
+key={org.id}
+organization={org}
+onDonate={handleDonate}
+onAddToDonationList={handleAddToDonationList}
+
+/>
+))}
+
+{selectedContent === 'history' && !isWelcomeShown && < HistoryModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
 
 {/*******************End of Hitory Content ********************************************** */}
@@ -309,16 +374,40 @@ onAddToDonationList={handleAddToDonationList}
 {/*******************ReminderContent Content ********************************************** */}
 
 <div>
-{selectedContent === 'reminder' && <ReminderContent />}
+{selectedContent === 'reminder' && 
+organizations.map((org) => (
+<ReminderContent 
+key={org.id}
+organization={org}
+onDonate={handleDonate}
+onAddToDonationList={handleAddToDonationList}
+
+/>
+))}
+
+{selectedContent === 'reminder' && !isWelcomeShown && < ReminderModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
 
 {/*******************End of ReminderContent Content ********************************************** */}
 
 
 {/*******************Beneficiary Stories Content ********************************************** */}
+
 <div>
-{selectedContent === 'beneficiary-stories' && <BeneficiaryStoriesContent />}
+{selectedContent === 'beneficiary-stories' && 
+organizations.map((org) => (
+<BeneficiaryStoriesContent 
+key={org.id}
+organization={org}
+onDonate={handleDonate}
+onAddToDonationList={handleAddToDonationList}
+
+/>
+))}
+
+{selectedContent === 'beneficiary-stories' && !isWelcomeShown && < BeneficiaryModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
+
 
 {/*******************End of Benficiary Content ********************************************** */}
 
@@ -375,5 +464,7 @@ Show Sidebar
   );
 }
 export default Dashboard;
+
+
 
 
