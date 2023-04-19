@@ -3,26 +3,16 @@
 import React, { useState, useEffect } from 'react';
 
 
-function HistoryContent({ organization, onDonate, onAddToDonationList }) {
+function HistoryContent({ organization, onDonate }) {
     const [isDonated, setIsDonated] = useState(false);
     const [orgData, setOrgData] = useState(organization);
-    const [addedToDonationList, setAddedToDonationList] = useState(false);
-    
-    // Define state for modal visibility
-   
-
   
     const handleDonate = () => {
       onDonate(orgData?.id);
       setIsDonated(true);
     };
   
-    const handleAddToDonationList = () => {
-      onAddToDonationList(orgData?.id);
-  
-      // Update the state to reflect that the button has been clicked
-      setAddedToDonationList(true);
-    };
+    
 
 
   return (
@@ -53,12 +43,7 @@ function HistoryContent({ organization, onDonate, onAddToDonationList }) {
   >
     {isDonated ? 'Donated!' : 'Donate'}
   </button>
-  <button
-    className={`bg-gray-400 hover:bg-gray-600 text-gray-800 text-white font-semibold py-2 px-4 rounded mt-2 ${addedToDonationList ? 'bg-green-600' : ''}`}
-    onClick={handleAddToDonationList}
-  >
-    {addedToDonationList ? 'Added to Donation List' : 'Donate Later'}
-  </button>
+ 
 </div>
 
           </div>
