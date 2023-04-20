@@ -35,19 +35,14 @@ function Dashboard() {
   // const [profilePicture, setProfilePicture] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
-  
   const [donationHistory, setDonationHistory] = useState([]);
-  
+  const [donationCount, setDonationCount] = useState(0);
+
+
+
+
 
   
-
-  
-
-  // Callback function to handle donation data
-  const handleDonation = (donationData) => {
-    // Add the donationData to the historyData array
-    setHistoryData([...historyData, donationData]);
-  };
   
  
 
@@ -78,24 +73,9 @@ function Dashboard() {
   };
 
 // ************************************************************FOR HANDLING HISTORYCONTENT**********************************************************************
-const [showHistory, setShowHistory] = useState(false);
-const [historyData, setHistoryData] = useState([]);
 
-// Handler for "History" button click
-const handleHistoryButtonClick = () => {
-  // Fetch history data from backend API
-  // Replace the fetch URL with your backend API endpoint to fetch donation history data
-  fetch('http://localhost:5000/history')
-    .then(response => response.json())
-    .then(data => {
-      // Update state with fetched history data
-      setHistoryData(data);
-      // Show the history content
-      setShowHistory(true);
-    })
-    .catch(error => console.error('Failed to fetch donation history:', error));
-};
 
+  
 
 // ************************************************************END OF HANDLING HISTORYCONTENT**********************************************************************
 
@@ -110,29 +90,52 @@ const handleNewDonationClick = () => {
 };
 
 
+// const handleDonate = (orgId) => {
+//   // Implement your logic for handling donation here
+// };
 
-const handleDonate = (organizationId) => {
-  // Implement your logic for handling donation here
-  console.log(`Donating to organization with id: ${organizationId}`);
+// const handleAddToDonationList = (orgId) => {
+//   // Implement your logic for adding organization to donation list here
+// };
 
-  // Find the organization data from organizations state using organizationId
-  const organization = organizations.find(org => org.id === organizationId);
+const handleDonate = (orgId) => {
 
-  // Add the organization data to donationHistory array
-  setDonationHistory(prevHistory => [...prevHistory, organization]);
-};
+  // setDonationCount(donationCount + 1);
 
   
-const handleAddToDonationList = (organizationId) => {
-// Implement your logic for adding to donation list here
-console.log(`Adding to donation list: ${organizationId}`);
+  // Find the organization in the list of organizations
+  const organization = organizations.find((org) => org.id === orgId);
 
-// Find the organization data from organizations state using organizationId
-const organization = organizations.find(org => org.id === organizationId);
+  // // Update the organization's donation count
+  // organization.donationCount = organization.donationCount ? organization.donationCount + 1 : 1;
 
-// Add the organization data to donationHistory array
-setDonationHistory(prevHistory => [...prevHistory, organization]);
+  // Update the state with the updated organization data
+  setorganizations((prevOrganizations) =>
+    prevOrganizations.map((org) => (org.id === orgId ? organization : org))
+  );
 };
+
+const handleAddToDonationList = (orgId) => {
+  // Find the organization in the list of organizations
+  const organization = organizations.find((org) => org.id === orgId);
+
+  // Add the organization to the donation history
+  setDonationHistory((prevDonationHistory) => {
+    // Check if the organization is already in the history
+    const existingOrg = prevDonationHistory.find((org) => org.id === orgId);
+    if (existingOrg) {
+      // If organization already exists, update its donation count
+      return prevDonationHistory.map((org) =>
+        org.id === orgId ? { ...org, donationCount: org.donationCount + 1 } : org
+      );
+    } else {
+      // If organization doesn't exist in history, add it
+      return [...prevDonationHistory, { ...organization, donationCount: 1 }];
+    }
+  });
+};
+
+
 
   useEffect(() => {
     // Fetch organizations data from backend API
@@ -206,6 +209,57 @@ const [profilePicture, setProfilePicture] = useState("");
 
 
 
+  function handleHistoryClick() {
+    // Create a list of organization IDs from the donation history
+    const orgIds = donationHistory.map((org) => org.id);
+  
+    // Fetch details of each organization using its ID
+    orgIds.forEach(async (orgId) => {
+      try {
+        const response = await fetch(`http://localhost:5000/organizations/${orgId}`);
+        const data = await response.json();
+        console.log('Organization details:', data);
+        // Add code here to update the UI with the organization details
+      } catch (error) {
+        console.error(`Failed to fetch organization details for ID ${orgId}:`, error);
+      }
+    });
+  }
+  
+  
+ 
+{/* ***********************************************Beneficiaries Stories *************************************************************** */}
+
+// const [Beneficiaries, setBeneficiaries] = useState([]);
+
+const [stories, setStories] = useState([]);
+
+const handleBeneficiaryClick = () => {
+  console.log('beneficiary button clicked');
+  setSelectedContent('beneficiary-stories');
+};
+ 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/stories');
+      const data = await response.json();
+      setStories(data);
+    } catch (error) {
+      console.error('Failed to fetch beneficiary-stories data:', error);
+    }
+  };
+  fetchData();
+}, []);
+
+function handleBeneficiary(beneficiary) {
+  console.log('Beneficiary:', beneficiary);
+}
+
+
+{/* ***********************************************End of Beneficiaries Stories *************************************************************** */}
+
+
 return (
    
 <div className="flex flex-col min-h-screen bg-fff5e1">
@@ -225,8 +279,9 @@ return (
 
 
   <div >
+    <div className=''>
   {/* ************************************This is the START of the contents related to the Sidebar Container********************************************** */}
-  <div>
+  <div className=''>
             {isSidebarOpen && (
          
          <div className="flex-grow flex flex-col md:flex-row  sidebar h-full">
@@ -319,7 +374,9 @@ onClick={handleNewDonationClick} // Add the onClick event handler here
 
 <button
   className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md mb-4 flex items-center justify-center"
-  onClick={() => setSelectedContent('history')}>
+  onClick={() => setSelectedContent('history')}
+  
+  >
   <FaHistory className="mr-2" />
   <span>History</span>
 </button>
@@ -342,7 +399,9 @@ onClick={handleReminderClick}>
 
 <button
 className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md flex items-center justify-center"
-onClick={() => setSelectedContent('beneficiary-stories')}>
+// onClick={() => setSelectedContent('beneficiary-stories')}
+onClick={handleBeneficiaryClick}
+>
 <FaHeart className="mr-2" />
 <span>Beneficiary Stories</span>
 </button>
@@ -382,7 +441,7 @@ onClick={() => setSelectedContent('beneficiary-stories')}>
                                               {/* This is the START OF THE CONTENT AREA */}
 
 {/* ******These is where the props are passed from their imported components *************************************************************************************************** */}
-<div>
+<div className=''>
 <div className='md:pl-80 '>
   
 
@@ -400,6 +459,8 @@ key={org.id}
 organization={org}
 onDonate={handleDonate}
 onAddToDonationList={handleAddToDonationList}
+// organization={selectedContent.organization}
+
 
 />
 ))}
@@ -413,17 +474,19 @@ onAddToDonationList={handleAddToDonationList}
 {/*******************HISTORY Content ********************************************** */}
 <div>
 {selectedContent === 'history' && 
-organizations.map((org) => (
+// donationHistory.map((donation, index) => (
 <HistoryContent 
-key={org.id}
-organization={org}
+// key={index}
+// donation={donation}
 onDonate={handleDonate}
-onAddToDonationList={handleAddToDonationList}
+donationHistory={donationHistory}/>
+}
 
-/>
-))}
+{selectedContent === 'history' && !isWelcomeShown && < HistoryModal 
+setIsWelcomeShown={setIsWelcomeShown}
 
-{selectedContent === 'history' && !isWelcomeShown && < HistoryModal setIsWelcomeShown={setIsWelcomeShown}/>}
+
+/>}
 </div>
 
 {/*******************End of Hitory Content ********************************************** */}
@@ -445,9 +508,6 @@ onAddToDonationList={handleAddToDonationList}
 
 </div>
 
-
-
-
 {/*******************End of ReminderContent Content ********************************************** */}
 
 
@@ -455,15 +515,13 @@ onAddToDonationList={handleAddToDonationList}
 
 <div>
 {selectedContent === 'beneficiary-stories' && 
-organizations.map((org) => (
 <BeneficiaryStoriesContent 
-key={org.id}
-organization={org}
-onDonate={handleDonate}
-onAddToDonationList={handleAddToDonationList}
+stories={stories} 
+
+
 
 />
-))}
+}
 
 {selectedContent === 'beneficiary-stories' && !isWelcomeShown && < BeneficiaryModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
@@ -480,6 +538,8 @@ onAddToDonationList={handleAddToDonationList}
                     
 
                                         {/* This is the END OF THE CONTENT AREA */}
+</div>
+                                        {/* This is the END OF THE CONTENT AREA AND SIDEBAR */}
 
 
 

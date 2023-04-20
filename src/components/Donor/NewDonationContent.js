@@ -1,5 +1,27 @@
 
 
+    // const handleDonate = async () => {
+    //   try {
+    //     const response = await fetch(`http://localhost:5000/organizations/${orgData.id}`, { method: 'POST' });
+    //     if (response.ok) {
+    //       setIsDonated(true);
+    //       setOrgData(null);
+    //     } else {
+    //       throw new Error('Failed to donate');
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //     alert('Failed to donate. Please try again later.');
+    //   }
+    // };
+    
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 
 
@@ -16,6 +38,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       onDonate(orgData?.id);
       setIsDonated(true);
     };
+
   
     const handleAddToDonationList = () => {
       onAddToDonationList(orgData?.id);
@@ -27,7 +50,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
 
   return (
     
-     <div className=' '>
+ 
     <div className="flex-1 mr-6  mt-6">
     {/* md:pl-80  */}
     <div className=""> {/* Update container width to occupy the rest of the page after the sidebar */}
@@ -66,7 +89,8 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       </div>
     </div>
   </div>
-  </div>
+  
+  
   
   );
 }
