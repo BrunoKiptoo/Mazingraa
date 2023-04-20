@@ -83,6 +83,7 @@ function HistoryContent({ donationHistory, organization, onDonate }) {
         return (
           <div key={index} className="bg-gray-100 rounded-md p-4 mb-4">
             <h3 className="text-lg font-bold">{donation.name}</h3>
+            {/* <img className="w-32 h-32 rounded-full float-right ml-4 mt-4" src={donation.image} alt="Donation" /> */}
             <p className="text-gray-600 text-sm">{donation.description}</p>
             <p className="text-gray-600 text-sm">{donation.email}</p>
             <p className="text-gray-600 text-sm">
@@ -95,7 +96,7 @@ function HistoryContent({ donationHistory, organization, onDonate }) {
                 {donation.website}
               </a>
             </p>
-            <p className="text-gray-600 text-sm">{donation.contactPerson}</p>
+            <p className="text-gray-600 text-sm mb-2">{donation.contactPerson}</p>
             <button
               className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ${
                 orgData.isDonated ? 'bg-green-600' : 'bg-blue-500'
@@ -113,3 +114,38 @@ function HistoryContent({ donationHistory, organization, onDonate }) {
 }
 
 export default HistoryContent;
+
+
+
+
+
+
+  //  <div key={index} className="bg-gray-100 rounded-md p-4 mb-4">
+  //           <h3 className="text-lg font-bold">{donation.name}</h3>
+  //           <img className="w-32 h-32 rounded-full mx-auto mt-4" src={donation.image} alt="Donation" />
+  //           <p className="text-gray-600 text-sm">{donation.description}</p>
+  //           <p className="text-gray-600 text-sm">{donation.email}</p>
+  //           <p className="text-gray-600 text-sm">
+  //             <a
+  //               href={donation.website}
+  //               target="_blank"
+  //               rel="noopener noreferrer"
+  //               className="text-blue-500 hover:underline"
+  //             >
+  //               {donation.website}
+  //             </a>
+  //           </p>
+  //           <p className="text-gray-600 text-sm">{donation.contactPerson}</p>
+  //           <button
+  //             className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ${
+  //               orgData.isDonated ? 'bg-green-600' : 'bg-blue-500'
+  //             } mr-2`}
+  //             onClick={() => handleDonate(index)}
+  //             disabled={orgData.isDonated}
+  //           >
+  //             {orgData.isDonated ? 'Donated!' : 'Donate'}
+  //           </button>
+  //         </div>
+  //       );
+  //     })}
+  //   </div>

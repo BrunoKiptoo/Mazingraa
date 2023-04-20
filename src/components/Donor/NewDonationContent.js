@@ -49,8 +49,11 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
 
 
   return (
+    <>
     
- 
+    <div className="bg-gray-100 shadow-md rounded-md p-4">
+      
+    {/* <h2 className="text-2xl font-bold mb-4">Donation History</h2> */}
     <div className="flex-1 mr-6  mt-6">
     {/* md:pl-80  */}
     <div className=""> {/* Update container width to occupy the rest of the page after the sidebar */}
@@ -90,7 +93,8 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
     </div>
   </div>
   
-  
+  </div>
+  </>
   
   );
 }
