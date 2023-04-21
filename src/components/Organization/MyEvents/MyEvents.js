@@ -288,17 +288,7 @@ function MyEvents() {
       placeholder="Enter the date"
     />
   </div>
-  <div className="flex flex-col mt-4">
-    <label htmlFor="poster" className="text-lg font-medium leading-6 text-gray-900">Poster URL</label>
-    <input
-      type="text"
-      name="poster"
-      value={event.poster}
-      onChange={handleChange}
-      className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
-      placeholder="Enter the poster URL"
-    />
-  </div>
+
   <div className="flex flex-col mt-4">
     <label htmlFor="description" className="text-lg font-medium leading-6 text-gray-900">Description</label>
     <textarea
@@ -310,15 +300,39 @@ function MyEvents() {
     ></textarea>
   </div>
 
+  <div className="flex flex-col ">
+    {/* <label htmlFor="poster" className="text-lg font-medium leading-6 text-gray-900">Poster URL</label>
+    <input
+      type="text"
+      name="poster"
+      value={event.poster}
+      onChange={handleChange}
+      className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
+      placeholder="Enter the poster URL"
+    /> */}
+
+<label className="block mt-4 text-lg font-medium leading-6 text-gray-900">Poster:</label>
+<input type="file" name="poster" onChange={handleChange} className="mb-4" />
+{event.poster && (
+<div className="mt-4">
+
+</div>
+)}
+  </div>
+
+  
+
+
   {/* CLOSE FORM AND SHOW EVENT ADDED BUTTON */}
-  <button type="submit" className="py-2 px-4 bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
-          {eventAdded ? 'Event Added' : 'Add Event'}
-          </button>
+  <button type="submit" onClick={() => setShowForm(false)} className="py-2 px-4 bg-gradient-to-r from-[#8f7300] to-[#c4a300] hover:from-[#c4a300] hover:to-[#8f7300] focus:ring-[#8f7300] focus:ring-offset-[#c4a300] text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
+  {eventAdded ? 'Event Added' : 'Add Event'}
+</button>
+
           </form>
          
         </>
       ) : (
-        <button type="button" onClick={() => setShowForm(true)} className="py-2 px-4 bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
+        <button type="button" onClick={() => setShowForm(true)} className="py-2 px-4 bg-gradient-to-r from-[#8f7300] to-[#c4a300] hover:from-[#c4a300] hover:to-[#8f7300] focus:ring-[#8f7300] focus:ring-offset-[#c4a300] text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
           Add Event
         </button>
       )}

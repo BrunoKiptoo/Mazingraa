@@ -296,10 +296,29 @@ function MyAddedEvents() {
         </div>
       )}
       <div className="flex-1 gap-4">
-        <h2 className="text-lg font-medium">{event.title}</h2>
-        <p className="text-gray-600">Date: {event.date}</p>
-        <p className="text-gray-600">Time: {event.time}</p>
-        <p className="text-gray-800 mt-2">{event.description}</p>
+        <div className="flex flex-col">
+          <h2 className="text-lg font-medium mb-2">{event.title}</h2>
+          <div className="flex gap-2">
+  <div className=" rounded-md p-2">
+    <p className="text-gray-800"><strong>Date:</strong> {event.date}</p>
+  </div>
+  <div className=" rounded-md p-2">
+    <p className="text-gray-800"><strong>Time:</strong> {event.time}</p>
+  </div>
+</div>
+
+
+        </div>
+        {/* <div className="bg-gray-100 rounded-md p-2 mt-2 water-effect">
+  <p className="text-gray-800">{event.description}</p>
+</div> */}
+
+<div className="bg-gray-100 rounded-md p-2 mt-2 shadow-md" style={{ boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)" }}>
+  <p className="text-gray-800">{event.description}</p>
+</div>
+
+
+
         <div className="mt-4 flex justify-end">
           <button onClick={() => handleEdit(event)} className="mr-2 text-blue-500 hover:text-blue-700"><FaEdit />Edit</button>
           <button onClick={() => handleDelete(event.id)} className="text-red-500 hover:text-red-700"><FaTrash/>Delete</button>
@@ -308,6 +327,7 @@ function MyAddedEvents() {
     </div>
   ))}
 </div>
+
 
 
 
