@@ -1,35 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-
-// function Notifications() {
-//   const [notifications, setNotifications] = useState([]);
-
-//   useEffect(() => {
-//     fetch('http://localhost:5000/notifications')
-//       .then(res => res.json())
-//       .then(data => setNotifications(data))
-//       .catch(err => console.log(err));
-//   }, []);
-
-//   return (
-//     <div className="bg-white shadow rounded-lg p-4">
-//       <h2 className="text-xl font-medium text-gray-800">Notifications</h2>
-//       <div className="mt-4">
-//         {notifications.map(notification => (
-//           <div key={notification.id} className="p-3 mb-3 bg-gray-50 rounded-lg">
-//             <div className="flex items-center justify-between">
-//               <h3 className="text-base font-medium text-gray-800">{notification.title}</h3>
-//               <p className="text-xs text-gray-500">{notification.date}</p>
-//             </div>
-//             <p className="mt-1 text-sm text-gray-600">{notification.message}</p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Notifications;
-
 
 
 import React, { useState, useEffect } from 'react';
@@ -39,13 +7,6 @@ import {FaTrash} from 'react-icons/fa';
 function Notifications() {
   const [notifications, setNotifications] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
-//   useEffect(() => {
-//     fetch('http://localhost:5000/notifications')
-//       .then(res => res.json())
-//       .then(data => setNotifications(data))
-//       .catch(err => console.log(err));
-//   }, []);
 
 
 useEffect(() => {
@@ -91,9 +52,9 @@ useEffect(() => {
   return (
     <div className="bg-white shadow rounded-lg p-4">
   <h2 className="text-xl font-medium text-gray-800">Notifications</h2>
-  <div className="mt-4">
+  <div className="mt-4 ">
     {notifications.map(notification => (
-     <div key={notification.id} className="p-3 mb-3 bg-gray-50 rounded-lg flex items-center">
+     <div key={notification.id} className="p-3 mb-3 bg-gray-50 rounded-lg flex items-center reminder-card">
      <img className="w-8 h-8 rounded-full mr-3" src={notification.image} alt={`${notification.sender}'s profile picture`} />
      <div>
        <span className="text-sm text-gray-900 font-bold">{notification.sender}</span>

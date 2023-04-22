@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 
 import OrganizationNavBar from './OrganizationNavBar';
 import Footer from '../Donor/Footer';
-import MyDonationsModal from './OrganizationModals.js/MyDonationsModal';
-import MyEventsModal from './OrganizationModals.js/MyEventsModal';
-import MyImpactModal from './OrganizationModals.js/MyImpactModal';
-import NotificationsModal from './OrganizationModals.js/NotificationsModal';
-import SupportModal from './OrganizationModals.js/SupportModal';
+import MyDonationsModal from './OrganizationModals/MyDonationsModal';
+import MyEventsModal from './OrganizationModals/MyEventsModal';
+import MyImpactModal from './OrganizationModals/MyImpactModal';
+import NotificationsModal from './OrganizationModals/NotificationsModal';
+import SupportModal from './OrganizationModals/SupportModal';
 import MyDonations from './MyDonations';
 import MyEvents from './MyEvents/MyEvents';
 import MyAddedEvents from './MyEvents/MyAddedEvents';
@@ -16,6 +16,10 @@ import MyImpact from './MyImpact/MyImpact';
 import Notifications from './Notifications';
 import Support from './Support';
 import MyImpactStories from './MyImpact/MyImpactStories';
+import AccountSettings from './AccountSettings';
+import AccountSettingsModal from './OrganizationModals/AccountSettingsModal';
+
+
 
 
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -29,6 +33,7 @@ import ProfilePicture from '../Donor/Profilepic';
 
 function Dashboard() {
 
+  
 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -43,6 +48,12 @@ function Dashboard() {
   // const [donationCount, setDonationCount] = useState(0);
 
 
+
+
+  const handleAccountSettingsClick = () => {
+    setSelectedContent('account-settings');
+  };  
+  
   const handleEditClick = () => {
     setIsEditFormOpen(true);
   }
@@ -87,6 +98,7 @@ return (
     <div className="bg-[#042a30] text-white py-2  w-full flex-1 fixed">
           <OrganizationNavBar 
           name={name}
+          onAccountSettingsClick={handleAccountSettingsClick} 
           />
     </div>
 
@@ -236,6 +248,8 @@ onClick={() => setSelectedContent('support')}
 
 {/* ***********************************************END OF Support Button*************************************************************** */}
 
+
+
 {/* ***********************************************Logout Button*************************************************************** */}
 
 <a href="/login" 
@@ -327,7 +341,9 @@ onClick={() => setSelectedContent('support')}
 {/*******************NOTIFICATIONS Content ********************************************** */}
 
 <div>
-{selectedContent === 'notifications' && < Notifications />}
+  <>
+  {selectedContent === 'notifications' && < Notifications />}
+  </>
 
 {selectedContent === 'notifications' && !isWelcomeShown && <NotificationsModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
@@ -343,6 +359,21 @@ onClick={() => setSelectedContent('support')}
 </div>
 
 {/*******************End of SUPPORT ********************************************** */}
+
+{/*******************STARTf ACCOUNT SETTINGS ********************************************** */}
+
+
+<div> 
+      {selectedContent === 'account-settings' && ( <AccountSettings />)}
+</div>
+
+ {/* <div>
+{selectedContent === 'account-settings' && < AccountSettings />}
+
+{selectedContent === 'account-settings' && !isWelcomeShown && <AccountSettingsModal setIsWelcomeShown={setIsWelcomeShown}/>}
+</div> */}
+
+{/*******************End of ACCOUNT SETTINGS ********************************************** */}
 
 
 </div>

@@ -272,7 +272,7 @@
       "title": "New feature added!",
       "message": "We've just added a new feature to our platform. Check it out now! 🚀",
       "date": "2023-04-21T09:45:00.000Z",
-      "sender": "Mazingira 👑",
+      "sender": "Mazingira🌿",
       "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
     },
     {
@@ -280,8 +280,79 @@
       "title": "Important update",
       "message": "Please be aware of an important update that may affect your account. Check your email for more details. 📩",
       "date": "2023-04-22T15:20:00.000Z",
-      "sender": "Mazingira 👑",
+      "sender": "Mazingira🍃",
       "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
+    },
+    {
+      "id": 4,
+      "title": "New message received!",
+      "message": "You have a new message from John Doe.",
+      "date": "2023-04-19T08:30:00.000Z",
+      "sender": "John Doe",
+      "image": "https://via.placeholder.com/50"
+    },
+    {
+      "id": 5,
+      "title": "Payment received",
+      "message": "You have received a payment of $50 from Jane Smith.",
+      "date": "2023-04-20T12:15:00.000Z",
+      "sender": "Jane Smith",
+      "image": "https://via.placeholder.com/50"
+    },
+    {
+      "id": 6,
+      "title": "Meeting reminder",
+      "message": "Don't forget about our meeting today at 2:00 PM.",
+      "date": "2023-04-21T08:00:00.000Z",
+      "sender": "John Doe",
+      "image": "https://via.placeholder.com/50"
+    },
+    {
+      "id": 7,
+      "title": "Celebrate Earth Day",
+      "message": "Join us as we celebrate earth day! 🌍",
+      "date": "2023-04-21T09:45:00.000Z",
+      "sender": "Mazingira🌿",
+      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
+    }
+  ],
+
+
+  "messages": [
+    {
+      "id": 1,
+      "text": "Hello, how can I help you today?",
+      "sender": "support",
+      "attachment": "",
+      "createdAt": "2023-04-22T12:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "text": "I have a question about my account.",
+      "sender": "user",
+      "attachment": "",
+      "createdAt": "2023-04-22T12:01:00.000Z"
+    },
+    {
+      "id": 3,
+      "text": "Sure, what would you like to know?",
+      "sender": "support",
+      "attachment": "",
+      "createdAt": "2023-04-22T12:02:00.000Z"
+    },
+    {
+      "id": 4,
+      "text": "How can I change my password?",
+      "sender": "user",
+      "attachment": "",
+      "createdAt": "2023-04-22T12:03:00.000Z"
+    },
+    {
+      "id": 5,
+      "text": "You can change your password by going to your account settings.",
+      "sender": "support",
+      "attachment": "",
+      "createdAt": "2023-04-22T12:04:00.000Z"
     }
   ]
   
