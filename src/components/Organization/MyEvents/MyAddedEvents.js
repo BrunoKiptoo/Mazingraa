@@ -201,6 +201,7 @@ function MyAddedEvents() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formData, setFormData] = useState({
+    location: '',
     title: '',
     date: '',
     time: '',
@@ -233,6 +234,7 @@ function MyAddedEvents() {
   const handleEdit = (event) => {
     setSelectedEvent(event);
     setFormData({
+      location: event.location,
       title: event.title,
       date: event.date,
       time: event.time,
@@ -318,6 +320,11 @@ function MyAddedEvents() {
 </div>
 
 
+<div className="bg-gray-100 rounded-md p-2 mt-2 shadow-md" style={{ boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)" }}>
+  <p className="text-gray-800">Location: {event.location}</p>
+</div>
+
+
 
         <div className="mt-4 flex justify-end">
           <button onClick={() => handleEdit(event)} className="mr-2 text-blue-500 hover:text-blue-700"><FaEdit />Edit</button>
@@ -351,6 +358,8 @@ function MyAddedEvents() {
               <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
               <label className="block mb-2">Time:</label>
               <input type="time" name="time" value={formData.time} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
+              <label className="block mb-2">Location:</label>
+              <input type="location" name="time" value={formData.location} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
               <label className="block mb-2">Description:</label>
               <textarea name="description" value={formData.description} onChange={handleFormChange}
 

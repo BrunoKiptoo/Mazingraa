@@ -201,41 +201,45 @@
         "donorImage": "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
       }
     ],
-
-      "events": [
-        {
+    "events": [
+      {
           "id": 1,
           "title": "Annual Charity Walk",
           "description": "Join us for our annual charity walk to raise funds for the local shelter.",
           "time": "2023-05-10T08:00:00Z",
           "date": "May 10, 2023",
-          "poster": "https://picsum.photos/id/1015/300/200"
-        },
-        {
+          "poster": "https://picsum.photos/id/1015/300/200",
+          "location": "Central Park"
+      },
+      {
           "id": 2,
           "title": "Community Cleanup Day",
           "description": "Help keep our community clean by joining us for a day of litter picking and garbage collection.",
           "time": "2023-06-15T10:00:00Z",
           "date": "June 15, 2023",
-          "poster": "https://picsum.photos/id/1025/300/200"
-        },
-        {
+          "poster": "https://picsum.photos/id/1025/300/200",
+          "location": "Downtown Plaza"
+      },
+      {
           "id": 3,
           "title": "Blood Drive",
           "description": "Donate blood and help save lives at our annual blood drive event.",
           "time": "2023-07-20T14:00:00Z",
           "date": "July 20, 2023",
-          "poster": "https://picsum.photos/id/1035/300/200"
-        },
-        {
+          "poster": "https://picsum.photos/id/1035/300/200",
+          "location": "Community Center"
+      },
+      {
           "id": 4,
           "title": "Food Drive",
           "description": "Help feed the hungry in our community by donating non-perishable food items at our food drive.",
           "time": "2023-08-25T09:00:00Z",
           "date": "August 25, 2023",
-          "poster": "https://picsum.photos/id/1045/300/200"
-        }
-      ]
+          "poster": "https://picsum.photos/id/1045/300/200",
+          "location": "Supermarket Parking Lot"
+      }
+  ]
+  
     
     
   
