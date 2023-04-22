@@ -283,11 +283,12 @@ function MyAddedEvents() {
   }
   return (
 <div className="mt-6 bg-[#f2efc5]  ">
-<h1 className="text-3xl font-bold text-center py-4">My Added Events</h1>
+
 
 <div className="grid gap-2 md:gap-4">
+<h1 className="text-3xl font-bold text-center py-4 cardevent ">My Added Events</h1>
   {events.map((event) => (
-    <div key={event.id} className="card p-4 border-b border-gray-200 flex items-start">
+    <div key={event.id} className="cardevent p-4 border-b border-gray-200 flex items-start">
       {event.poster && (
         <div className="mr-4 flex-none">
           <img
@@ -349,7 +350,8 @@ function MyAddedEvents() {
 
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div className="inline-block impact-modal align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        style={{ width: '600px', height: '400px' }}>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <h2 className="text-lg font-medium mb-4">Edit Event</h2>
             <form>

@@ -26,7 +26,7 @@ function MyDonations() {
       <div className="flex flex-wrap -mx-4">
         {donations.map(donation => (
           <div key={donation.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
-            <div className="bg-yellow-400 shadow rounded-lg">
+            <div className="bg-yellow-400 shadow rounded-lg reminder-card">
               <div className="p-4">
                 <div className="font-bold text-lg">{donation.amount}</div>
                 <div className="text-gray-500">{donation.time}</div>

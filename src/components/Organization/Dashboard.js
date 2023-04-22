@@ -12,9 +12,10 @@ import SupportModal from './OrganizationModals.js/SupportModal';
 import MyDonations from './MyDonations';
 import MyEvents from './MyEvents/MyEvents';
 import MyAddedEvents from './MyEvents/MyAddedEvents';
-import MyImpact from './MyImpact';
+import MyImpact from './MyImpact/MyImpact';
 import Notifications from './Notifications';
 import Support from './Support';
+import MyImpactStories from './MyImpact/MyImpactStories';
 
 
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -291,11 +292,14 @@ onClick={() => setSelectedContent('support')}
   <div className="w-full lg:w-1/2">
     {selectedContent === 'my-events' && <MyEvents />}
   </div>
-  <div className="w-full lg:w-1/2 overflow-y-auto" style={{ height: '500px' }}>
-    {selectedContent === 'my-events' && <MyAddedEvents />}
+  <div className="w-full lg:w-1/2">
+    {selectedContent === 'my-events' && <div className='overflow-y-auto' style={{ height: '500px' }}>
+      <MyAddedEvents />
+    </div>}
   </div>
   {selectedContent === 'my-events' && !isWelcomeShown && <MyEventsModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
+
 
 
 
@@ -304,13 +308,18 @@ onClick={() => setSelectedContent('support')}
 
 {/*******************MyImpact Content ********************************************** */}
 
-<div className="">
-  {/* use this for styling do not delete its custom css reminder-container */}
-  {selectedContent === 'my-impact' &&  <MyImpact/>}
-  
+<div className="flex flex-row flex-wrap " >
+  <div className='w-full lg:w-1/2'>
+    {selectedContent === 'my-impact' &&  <MyImpact/>}
+  </div>
+  <div className="w-full lg:w-1/2">
+    {selectedContent === 'my-impact' && <div className='overflow-y-auto' style={{ height: '500px' }}>
+      <MyImpactStories />
+    </div>}
+  </div>
   {selectedContent === 'my-impact' && !isWelcomeShown && <MyImpactModal setIsWelcomeShown={setIsWelcomeShown}/>}
-
 </div>
+
 
 {/*******************End of MyImpact Content ********************************************** */}
 

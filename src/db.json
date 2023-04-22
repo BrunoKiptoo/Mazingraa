@@ -113,6 +113,9 @@
       {
         "id": 1,
         "title": "Saving the Turtles",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "Earthjustice",
+        "date":"2023-04-23rd",
         "location": "Costa Rica",
         "summary": "We helped protect turtle nesting grounds and hatchlings from predators and poachers, and raised awareness about the importance of sea turtle conservation.",
         "image": "https://images.ctfassets.net/81iqaqpfd8fy/1E7sBF870wYQRIaMn0s7sD/b8763104bbf99c182aad503e2870df97/environmentvol.jpg?h=620&w=1440"
@@ -120,6 +123,9 @@
       {
         "id": 2,
         "title": "Protecting the Amazon",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "Fashion Revolution",
+        "date":"2023-04-23rd",
         "location": "Brazil",
         "summary": "We worked with local communities to stop deforestation and preserve the biodiversity of the Amazon rainforest.",
         "image": "https://img.freepik.com/premium-photo/young-responsible-people-doing-community-charity-work-park-group-people-cleaning-together-public-park-saving-environment_1212-7546.jpg"
@@ -127,6 +133,9 @@
       {
         "id": 3,
         "title": "Clean Water for All",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "Natural Resources Defense Council",
+        "date":"2023-04-23rd",
         "location": "India",
         "summary": "We built wells and provided water filtration systems to give communities access to clean water and prevent water-borne illnesses.",
         "image": "https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/12/20/Pictures/asian-little-girl-helping-tree-father-plant_6cea6b48-e54e-11e7-bd8c-dad1885580ce.jpg"
@@ -134,6 +143,9 @@
       {
         "id": 4,
         "title": "Renewable Energy in Action",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "Earthjustice",
+        "date":"2023-04-23rd",
         "location": "USA",
         "summary": "We installed solar panels on community buildings and helped households transition to renewable energy, reducing their carbon footprint.",
         "image": "https://cdn1.matadornetwork.com/blogs/1/2020/07/volunteers-planting-trees-1200x853.jpg"
@@ -141,6 +153,9 @@
       {
         "id": 5,
         "title": "Community Forests",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "School Girls Unite",
+        "date":"2023-04-23rd",
         "location": "Kenya",
         "summary": "We worked with local communities to establish sustainable community forests, which provide important habitat for wildlife and help combat climate change.",
         "image": "https://www.scotsman.com/webimg/b25lY21zOmExYTQ4OGJiLWU0YjItNDhjYi1hOGNlLTc4ZmY0Y2M5NmEyODphMTJmM2JmZC03NjU0LTRiZTItOWE0NS1iMzk3MjVkZWMwOTY=.jpg?width=1200&enable=upscale"
@@ -148,6 +163,9 @@
       {
         "id": 6,
         "title": "Reducing Plastic Pollution",
+        "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
+        "name": "Fashion Revolution",
+        "date":"2023-04-23rd",
         "location": "Indonesia",
         "summary": "We raised awareness about plastic pollution and provided education and resources to help communities reduce their use of single-use plastics.",
         "image": "https://t4.ftcdn.net/jpg/01/65/02/89/360_F_165028958_a8t7Q0WJyETMXpRzabLZXFmFRVAYvbsM.jpg"
@@ -238,7 +256,35 @@
           "poster": "https://picsum.photos/id/1045/300/200",
           "location": "Supermarket Parking Lot"
       }
+  ],
+
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Welcome to our platform!",
+      "message": "Thank you for joining our platform. We hope you enjoy your experience! 😊",
+      "date": "2023-04-20T12:30:00.000Z",
+      "sender": "Mazingira 👑",
+      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
+    },
+    {
+      "id": 2,
+      "title": "New feature added!",
+      "message": "We've just added a new feature to our platform. Check it out now! 🚀",
+      "date": "2023-04-21T09:45:00.000Z",
+      "sender": "Mazingira 👑",
+      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Important update",
+      "message": "Please be aware of an important update that may affect your account. Check your email for more details. 📩",
+      "date": "2023-04-22T15:20:00.000Z",
+      "sender": "Mazingira 👑",
+      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
+    }
   ]
+  
   
     
     

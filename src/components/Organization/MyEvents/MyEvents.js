@@ -257,7 +257,7 @@ function MyEvents() {
             {/* INPUT FIELDS */}
 
     <div className="flex flex-col">
-       <label htmlFor="time" className="text-lg font-medium leading-6 text-gray-900">Title</label>
+       <label htmlFor="time" className="text-lg font-medium leading-6 text-gray-900"> Event Title</label>
      <input
       type="text"
       name="title"
