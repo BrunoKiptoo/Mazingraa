@@ -268,8 +268,8 @@ onClick={() => setSelectedContent('support')}
 
 {/* ******These is where the props are passed from their imported components *************************************************************************************************** */}
 <div className='bg-[#f2efc5]'>
-<div className='md:pl-80 '>
-<div className=" flex-grow flex flex-col py-16  mr-5 overflow-y-auto">
+<div className='md:pl-80'>
+<div className=" flex-grow flex flex-col  py-20  mr-5 overflow-y-auto">
 {/* md:pl-80 */}
 
 {/*******************STRAT OF MY Donation Content ********************************************** */}
@@ -291,11 +291,12 @@ onClick={() => setSelectedContent('support')}
   <div className="w-full lg:w-1/2">
     {selectedContent === 'my-events' && <MyEvents />}
   </div>
-  <div className="w-full lg:w-1/2 ">
+  <div className="w-full lg:w-1/2 overflow-y-auto" style={{ height: '500px' }}>
     {selectedContent === 'my-events' && <MyAddedEvents />}
   </div>
   {selectedContent === 'my-events' && !isWelcomeShown && <MyEventsModal setIsWelcomeShown={setIsWelcomeShown}/>}
 </div>
+
 
 
 {/*******************End of MYEVENTS Content ********************************************** */}

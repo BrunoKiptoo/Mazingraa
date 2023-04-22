@@ -194,7 +194,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaMapMarkerAlt } from 'react-icons/fa';
 
 function MyAddedEvents() {
   const [events, setEvents] = useState([]);
@@ -283,7 +283,7 @@ function MyAddedEvents() {
   }
   return (
 <div className="mt-6 bg-[#f2efc5]  ">
-{/* <h1 className="text-3xl font-bold text-center py-4">My Added Events</h1> */}
+<h1 className="text-3xl font-bold text-center py-4">My Added Events</h1>
 
 <div className="grid gap-2 md:gap-4">
   {events.map((event) => (
@@ -319,17 +319,18 @@ function MyAddedEvents() {
   <p className="text-gray-800">{event.description}</p>
 </div>
 
+<div className="mt-4 flex justify-end">
+  <div className="bg-gray-100 rounded-md p-2 mt-2 shadow-md flex items-center" style={{ boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)" }}>
+    <FaMapMarkerAlt className="mr-2 text-gray-500" />
+    <p className="text-gray-800">{event.location}</p>
+  </div>
 
-<div className="bg-gray-100 rounded-md p-2 mt-2 shadow-md" style={{ boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)" }}>
-  <p className="text-gray-800">Location: {event.location}</p>
+  <div className="ml-auto">
+    <button onClick={() => handleEdit(event)} className="mr-2 text-blue-500 hover:text-blue-700"><FaEdit />Edit</button>
+    <button onClick={() => handleDelete(event.id)} className="text-red-500 hover:text-red-700"><FaTrash/>Delete</button>
+  </div>
 </div>
 
-
-
-        <div className="mt-4 flex justify-end">
-          <button onClick={() => handleEdit(event)} className="mr-2 text-blue-500 hover:text-blue-700"><FaEdit />Edit</button>
-          <button onClick={() => handleDelete(event.id)} className="text-red-500 hover:text-red-700"><FaTrash/>Delete</button>
-        </div>
       </div>
     </div>
   ))}
