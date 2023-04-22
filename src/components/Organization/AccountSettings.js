@@ -80,13 +80,14 @@ import { Link } from 'react-router-dom';
         {/* add more billing and payments links here */}
       </div>
     </div>
-  </div>
-  <div className="bg-white rounded p-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4">
     <h2 className="text-lg font-bold mb-2">Delete Account</h2>
     {/* show modal when button is clicked */}
-    <button onClick={() => setShowDeleteModal(true)} className="text-red-500 hover:underline">
+    <button onClick={() => setShowDeleteModal(true)} className="py-2 px-4 bg-gradient-to-r from-[#8f7300] to-[#c4a300] hover:from-[#c4a300] hover:to-[#8f7300] focus:ring-[#8f7300] focus:ring-offset-[#c4a300] text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
       Delete Account
     </button>
+  </div>
+ 
   </div>
   {/* delete account modal */}
   {showDeleteModal && (
