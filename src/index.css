@@ -248,3 +248,10 @@ body {
 .p-7 {
   height: auto; /* set the height of the child element to auto to adjust to the parent's height */
 }
+
+
+.text-center {
+  text-align: center;
+}
+
+
