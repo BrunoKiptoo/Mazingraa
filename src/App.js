@@ -14,6 +14,7 @@ import OrganizationDahboard from '../src/components/Organization/Dashboard';
 // import NewDonationContent from './components/Donor/NewDonationContent';
 // import ReminderContent from './components/Donor/ReminderContent';
 // import Profilepic from '../src/components/Donor/Profilepic'
+import Dashboard from '../src/components/Admin/Dashboard';
 
 
 
@@ -31,7 +32,8 @@ function App() {
           <Route exact path="/registration" Component={GeneralRegistrationForm} /> 
           <Route exact path="/password-reset" Component={PasswordReset} /> 
           <Route exact path="/donor-dashboard" Component={DonorDashBoard} />
-          <Route exact path="/organization-dashboard" Component={OrganizationDahboard} />  
+          <Route exact path="/organization-dashboard" Component={OrganizationDahboard} />
+          <Route exact path="/admin-dashboard" Component={Dashboard} />  
        
 
 
@@ -47,7 +49,7 @@ function App() {
         
       </Router>
 
-      
+      {/* <Dashboard/> */}
         {/* <div className="my-custom-class"></div> */}
     </div>
   );
