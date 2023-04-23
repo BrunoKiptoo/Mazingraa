@@ -23,7 +23,7 @@ import AccountSettingsModal from './OrganizationModals/AccountSettingsModal';
 
 
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import {FaBell, FaEdit, FaSignOutAlt,FaMoneyBillAlt, FaCalendarAlt, FaChartPie, FaHeartbeat } from 'react-icons/fa';
+import {FaBell, FaEdit, FaSignOutAlt,FaMoneyBillAlt, FaCalendarAlt, FaChartPie, FaHeartbeat, FaPhoneAlt } from 'react-icons/fa';
 
 import ProfilePicture from '../Donor/Profilepic';
 
@@ -53,7 +53,7 @@ function Dashboard() {
   const handleAccountSettingsClick = () => {
     setSelectedContent('account-settings');
   };  
-  
+
   const handleEditClick = () => {
     setIsEditFormOpen(true);
   }
@@ -242,7 +242,7 @@ onClick={() => setSelectedContent('notifications')}
 className="py-2 mb-2 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md flex items-center justify-center"
 onClick={() => setSelectedContent('support')}
 >
-<FaHeartbeat  className="mr-2" />
+<FaPhoneAlt  className="mr-2" />
 <span>Support</span>
 </button>
 
