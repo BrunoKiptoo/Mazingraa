@@ -72,7 +72,8 @@ useEffect(() => {
     ))}
     {notifications.length > 0 &&
       <div className="mt-4">
-        <button className="text-sm text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded" onClick={() => setShowModal(true)}>Clear all notifications</button>
+        <button className="py-2 px-4 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-800 hover:to-red-600 focus:ring-red-600 focus:ring-offset-red-800 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2
+" onClick={() => setShowModal(true)}>Clear all notifications</button>
       </div>
     }
   </div>

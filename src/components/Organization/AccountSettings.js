@@ -44,43 +44,43 @@ import { Link } from 'react-router-dom';
 
     <div className="max-w-4xl mx-auto">
   <h1 className="text-3xl font-bold mb-8">Account Settings</h1>
-  <div className="flex flex-wrap -mx-4 mb-8">
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+  <div className="flex flex-wrap -mx-4 mb-8 ">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
       <div className="bg-white rounded-lg shadow p-6 h-full">
         <h2 className="text-lg font-bold mb-4">Profile Settings</h2>
         <Link to="/account/profile" className="text-blue-500 hover:underline block mb-4">Edit Profile Information</Link>
         {/* add more profile settings links here */}
       </div>
     </div>
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
       <div className="bg-white rounded-lg shadow p-6 h-full">
         <h2 className="text-lg font-bold mb-4">Account Settings</h2>
         <Link to="/account/account-settings" className="text-blue-500 hover:underline block mb-4">Change Password and Notification Settings</Link>
         {/* add more account settings links here */}
       </div>
     </div>
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
       <div className="bg-white rounded-lg shadow p-6 h-full">
         <h2 className="text-lg font-bold mb-4">Privacy Settings</h2>
         <Link to="/account/privacy-settings" className="text-blue-500 hover:underline block mb-4">Manage Privacy Settings</Link>
         {/* add more privacy settings links here */}
       </div>
     </div>
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
       <div className="bg-white rounded-lg shadow p-6 h-full">
         <h2 className="text-lg font-bold mb-4">Security Settings</h2>
         <Link to="/account/security-settings" className="text-blue-500 hover:underline block mb-4">Enable Two-Factor Authentication or Review Login Activity</Link>
         {/* add more security settings links here */}
       </div>
     </div>
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
       <div className="bg-white rounded-lg shadow p-6 h-full">
         <h2 className="text-lg font-bold mb-4">Billing and Payments</h2>
         <Link to="/account/billing-and-payments" className="text-blue-500 hover:underline block mb-4">Manage Billing and Payment Information</Link>
         {/* add more billing and payments links here */}
       </div>
     </div>
-    <div className="w-full sm:w-1/2 px-4 mb-4">
+    <div className="w-full sm:w-1/2 px-4 mb-4 reminder-card">
     <h2 className="text-lg font-bold mb-2">Delete Account</h2>
     {/* show modal when button is clicked */}
     <button onClick={() => setShowDeleteModal(true)} className="py-2 px-4 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-800 hover:to-red-600 focus:ring-red-600 focus:ring-offset-red-800 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2
