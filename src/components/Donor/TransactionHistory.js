@@ -1,7 +1,9 @@
+
+
 import React, { useState, useEffect } from 'react';
 
 
-function DonorManagement() {
+function TransactionHistory() {
   const [donationData, setDonationData] = useState([]);
   const [donorName, setDonorName] = useState('');
 
@@ -57,7 +59,7 @@ function DonorManagement() {
 
   return (
     <div className="max-w-2xl mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4">Donor Management</h1>
+      <h1 className="text-3xl font-bold mb-4">My Transactions</h1>
       <div className="bg-white shadow rounded-lg p-4 mb-4">
         <h2 className="text-xl font-bold mb-2">Welcome, {donorName}!</h2>
         {renderThankYouMessage()}
@@ -69,7 +71,8 @@ function DonorManagement() {
   );
 }
 
-export default DonorManagement;
+export default TransactionHistory;
+
 
 
 
