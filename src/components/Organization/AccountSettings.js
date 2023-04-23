@@ -83,7 +83,8 @@ import { Link } from 'react-router-dom';
     <div className="w-full sm:w-1/2 px-4 mb-4">
     <h2 className="text-lg font-bold mb-2">Delete Account</h2>
     {/* show modal when button is clicked */}
-    <button onClick={() => setShowDeleteModal(true)} className="py-2 px-4 bg-gradient-to-r from-[#8f7300] to-[#c4a300] hover:from-[#c4a300] hover:to-[#8f7300] focus:ring-[#8f7300] focus:ring-offset-[#c4a300] text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2">
+    <button onClick={() => setShowDeleteModal(true)} className="py-2 px-4 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-800 hover:to-red-600 focus:ring-red-600 focus:ring-offset-red-800 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2
+">
       Delete Account
     </button>
   </div>
