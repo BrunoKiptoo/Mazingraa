@@ -123,7 +123,7 @@ return (
 
                                                 {/* This is the START OF THE NAVBAR AREA */}
 
-    <div className="bg-[#042a30] text-white py-2  w-full flex-1 fixed">
+    <div className="bg-[#000000] text-white py-2  w-full flex-1 fixed">
           <AdminNavBar 
           name={name}
           onAccountSettingsClick={handleAccountSettingsClick} 
@@ -143,7 +143,7 @@ return (
            <div className="w-full md:w-1/5 bg-gray-200 flex-1 fixed top-0 bottom-0 left-0">
            {/* w-1/5 bg-gray-200 flex-1 fixed top-0 bottom-0 left-0 */}
           
-           <div className="flex flex-col h-full p-4  bg-[#042a30]">
+           <div className="flex flex-col h-full p-4  bg-[#000000]">
 
             {/* Profile Picture ******************************************************************************************************/}
 

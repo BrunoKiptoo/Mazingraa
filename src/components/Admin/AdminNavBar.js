@@ -27,7 +27,7 @@ function AdminNavBar(props) {
         </ul>
         <div className="p-4 mr-5">
           <p>
-            Hello, {props.name}! Manage and provide a high-quality user experience for donors and environmental organizations.
+            Hello, {props.name}! Manage and provide a high-quality user experience for donors and environmental organizations as Admin.
           </p>
         </div>
         <button
