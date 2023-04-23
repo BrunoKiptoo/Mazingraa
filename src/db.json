@@ -473,6 +473,67 @@
       "title": "Holiday Sale",
       "content": "<p>Get your holiday shopping done early with our special sale!</p>"
     }
+  ],
+
+  "donation-data": [
+    {
+      "id": 1,
+      "donorName": "John Doe",
+      "date": "2022-03-20",
+      "amount": 50,
+      "paymentMethod": "Credit Card",
+      "organizationId": 1
+    },
+    {
+      "id": 2,
+      "donorName": "Jane Smith",
+      "date": "2022-03-22",
+      "amount": 100,
+      "paymentMethod": "PayPal",
+      "organizationId": 2
+    },
+    {
+      "id": 3,
+      "donorName": "Bob Johnson",
+      "date": "2022-03-25",
+      "amount": 25,
+      "paymentMethod": "Venmo",
+      "organizationId": 1
+    }
+  ],
+  "organization-data": [
+    {
+      "id": 1,
+      "name": "Red Cross"
+    },
+    {
+      "id": 2,
+      "name": "UNICEF"
+    },
+    {
+      "id": 3,
+      "name": "Doctors Without Borders"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "role": "donor"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "role": "organization"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob.johnson@example.com",
+      "role": "donor"
+    }
   ]
  
   
