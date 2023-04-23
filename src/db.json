@@ -220,11 +220,7 @@
       }
       
     ],
-    "totalDonations": [
-      {
-        "amount": 150
-      }
-    ],
+   
 
     "events": [
       {
@@ -361,10 +357,123 @@
       "attachment": "",
       "createdAt": "2023-04-22T12:04:00.000Z"
     }
+  ],
+
+  "user-engagement": [
+    {
+      "id": 1,
+      "totalUsers": 1000,
+    "activeUsers": 500,
+    "inactiveUsers": 500,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    
+    "date": "2023-04-23",
+    "donations": 5000
+    },
+    {
+      "id": 2,
+      "totalUsers": 1000,
+      "activeUsers": 500,
+      "inactiveUsers": 500,
+      "month": "April",
+      "visits": 5000,
+      "signups": 100,
+     
+      "date": "2023-04-23",
+      "donations": 5000
+    },
+    {
+      "id": 3,
+      "totalUsers": 1000,
+    "activeUsers": 500,
+    "inactiveUsers": 500,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    "date": "2023-04-23",
+    "donations": 5000
+    }
+  ],
+  "donation-activity": [
+    {
+      "id": 1,
+    "totalDonations": 10000,
+    "monthlyDonations": 2000,
+    "averageDonation": 50,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    "activeUsers": 500,
+    "date": "2023-04-23",
+    "donations": 5000
+    },
+    {
+      "id": 2,
+      "totalDonations": 10000,
+    "monthlyDonations": 2000,
+    "averageDonation": 50,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    "activeUsers": 500,
+    "date": "2023-04-23",
+    "donations": 5000
+    },
+    {
+      "id": 3,
+      "totalDonations": 10000,
+    "monthlyDonations": 2000,
+    "averageDonation": 50,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    "activeUsers": 500,
+    "date": "2023-04-23",
+    "donations": 5000
+    },
+    {
+      "totalDonations": 10000,
+    "monthlyDonations": 2000,
+    "averageDonation": 50,
+    "month": "April",
+    "visits": 5000,
+    "signups": 100,
+    "activeUsers": 500,
+    "date": "2023-04-23",
+    "donations": 5000
+    }
+  ],
+
+
+
+
+
+  "pages": [
+    {
+      "id": 1,
+      "title": "Home",
+      "content": "<p>Welcome to our website!</p>"
+    },
+    {
+      "id": 2,
+      "title": "About Us",
+      "content": "<p>We are a company that sells products online.</p>"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "New Product Launch",
+      "content": "<p>We are excited to announce the launch of our new product!</p>"
+    },
+    {
+      "id": 2,
+      "title": "Holiday Sale",
+      "content": "<p>Get your holiday shopping done early with our special sale!</p>"
+    }
   ]
-  
-  
-    
-    
+ 
   
 }
