@@ -29,7 +29,7 @@ function UserManagement() {
   const handleSaveClick = () => {
     setLoading(true);
     const method = editingUserId ? 'PUT' : 'POST';
-    const url = editingUserId ? `/api/users/${editingUserId}` : '/api/users';
+    const url = editingUserId ? `http://localhost:5000/users/${editingUserId}` : 'http://localhost:5000/users';
     fetch(url, {
       method,
       headers: {
@@ -55,7 +55,7 @@ function UserManagement() {
 
   const handleDeleteClick = userId => {
     setLoading(true);
-    fetch(`/api/users/${userId}`, { method: 'DELETE' })
+    fetch(`http://localhost:5000/users/${userId}`, { method: 'DELETE' })
       .then(() => {
         const updatedUsers = users.filter(user => user.id !== userId);
         setUsers(updatedUsers);

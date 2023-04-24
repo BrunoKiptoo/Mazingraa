@@ -9,12 +9,12 @@ function TransactionHistory() {
 
   useEffect(() => {
     // Fetch donation data from server
-    fetch('/donation-data')
+    fetch(' http://localhost:5000/donation-data')
       .then(response => response.json())
       .then(data => setDonationData(data));
 
     // Fetch donor name from server
-    fetch('/donor-name')
+    fetch(' http://localhost:5000/donor-name')
       .then(response => response.json())
       .then(data => setDonorName(data.name));
   }, []);

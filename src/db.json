@@ -45,6 +45,7 @@
     {
       "id": 1,
       "title": "Beach Cleanup",
+      "organization": "Earthjustice",
       "description": "Join us for a beach clean-up on Saturday at 9am",
       "date": "2023-04-23rd",
       "location": "Ocean Beach, San Francisco",
@@ -53,6 +54,7 @@
     {
       "id": 2,
       "title": "Sustainable Living Forum",
+      "organization": "Earthjustice",
       "image": "https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGVudmlyb25tZW50YWx8ZW58MHx8MHx8&w=1000&q=80 ",
       "description": "Don't miss our panel discussion on sustainable living on Wednesday at 6pm",
       "date": "2023-04-27th",
@@ -61,6 +63,7 @@
     {
       "id": 3,
       "title": "Community Garden Day",
+      "organization": "Fashion Revolution",
       "image": " https://st.depositphotos.com/1447173/3140/i/600/depositphotos_31406835-stock-photo-the-aim-is-the-recycling.jpg ",
       "description": "Come help us plant the new community garden on Sunday at 10am",
       "date": "2023-05-01st",
@@ -69,6 +72,7 @@
     {
       "id": 4,
       "title": "Climate Change March",
+      "organization": "Fashion Revolution",
       "image": " https://media.istockphoto.com/id/1327919661/photo/world-earth-day-concept-green-energy-renewable-and-sustainable-resources-environmental-and.jpg?b=1&s=170667a&w=0&k=20&c=7u6TwP6RmGm5e9x78rZ_VS0QZ7JxUQmGaywqfPYdaWs= ",
       "description": "Join us for a climate change march on Saturday at 2pm",
       "date": "2023-05-07th",
@@ -77,6 +81,7 @@
     {
       "id": 5,
       "title": "Beach Cleanup",
+      "organization": "Fashion Revolution",
       "description": "Join us for a beach clean-up on Saturday at 9am",
       "date": "2023-04-23rd",
       "location": "Ocean Beach, San Francisco",
@@ -85,6 +90,7 @@
     {
       "id": 6,
       "title": "Beach Cleanup",
+      "organization": "Natural Resources Defense Council",
       "description": "Join us for a beach clean-up on Saturday at 9am",
       "date": "2023-04-23rd",
       "location": "Ocean Beach, San Francisco",
@@ -93,6 +99,7 @@
     {
       "id": 7,
       "title": "Beach Cleanup",
+      "organization": "Natural Resources Defense Council",
       "description": "Join us for a beach clean-up on Saturday at 9am",
       "date": "2023-04-23rd",
       "location": "Ocean Beach, San Francisco",
@@ -101,6 +108,7 @@
     {
       "id": 8,
       "title": "Beach Cleanup",
+      "organization": "School Girls Unite",
       "description": "Join us for a beach clean-up on Saturday at 9am",
       "date": "2023-04-23rd",
       "location": "Ocean Beach, San Francisco",
@@ -112,7 +120,7 @@
       "id": 1,
       "title": "Saving the Turtles",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "Earthjustice",
+      "organization": "Earthjustice",
       "date": "2023-04-23rd",
       "location": "Costa Rica",
       "summary": "We helped protect turtle nesting grounds and hatchlings from predators and poachers, and raised awareness about the importance of sea turtle conservation.",
@@ -122,7 +130,7 @@
       "id": 2,
       "title": "Protecting the Amazon",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "Fashion Revolution",
+      "organization": "Fashion Revolution",
       "date": "2023-04-23rd",
       "location": "Brazil",
       "summary": "We worked with local communities to stop deforestation and preserve the biodiversity of the Amazon rainforest.",
@@ -132,7 +140,7 @@
       "id": 3,
       "title": "Clean Water for All",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "Natural Resources Defense Council",
+      "organization": "Natural Resources Defense Council",
       "date": "2023-04-23rd",
       "location": "India",
       "summary": "We built wells and provided water filtration systems to give communities access to clean water and prevent water-borne illnesses.",
@@ -142,7 +150,7 @@
       "id": 4,
       "title": "Renewable Energy in Action",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "Earthjustice",
+      "organization": "Earthjustice",
       "date": "2023-04-23rd",
       "location": "USA",
       "summary": "We installed solar panels on community buildings and helped households transition to renewable energy, reducing their carbon footprint.",
@@ -152,7 +160,7 @@
       "id": 5,
       "title": "Community Forests",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "School Girls Unite",
+      "organization": "School Girls Unite",
       "date": "2023-04-23rd",
       "location": "Kenya",
       "summary": "We worked with local communities to establish sustainable community forests, which provide important habitat for wildlife and help combat climate change.",
@@ -162,7 +170,7 @@
       "id": 6,
       "title": "Reducing Plastic Pollution",
       "blogurl": "https://tomorrowfood200274315.wordpress.com/2023/04/04/step-by-step-guide-deploying-an-api-only-ruby-on-rails-application-on-render/",
-      "name": "Fashion Revolution",
+      "organization": "Fashion Revolution",
       "date": "2023-04-23rd",
       "location": "Indonesia",
       "summary": "We raised awareness about plastic pollution and provided education and resources to help communities reduce their use of single-use plastics.",
@@ -256,22 +264,6 @@
   ],
   "notifications": [
     {
-      "id": 1,
-      "title": "Welcome to our platform!",
-      "message": "Thank you for joining our platform. We hope you enjoy your experience! 😊",
-      "date": "2023-04-20T12:30:00.000Z",
-      "sender": "Mazingira 👑",
-      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
-    },
-    {
-      "id": 2,
-      "title": "New feature added!",
-      "message": "We've just added a new feature to our platform. Check it out now! 🚀",
-      "date": "2023-04-21T09:45:00.000Z",
-      "sender": "Mazingira🌿",
-      "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
-    },
-    {
       "id": 3,
       "title": "Important update",
       "message": "Please be aware of an important update that may affect your account. Check your email for more details. 📩",
@@ -296,44 +288,12 @@
       "image": "https://via.placeholder.com/50"
     },
     {
-      "id": 6,
-      "title": "Meeting reminder",
-      "message": "Don't forget about our meeting today at 2:00 PM.",
-      "date": "2023-04-21T08:00:00.000Z",
-      "sender": "John Doe",
-      "image": "https://via.placeholder.com/50"
-    },
-    {
       "id": 7,
       "title": "Celebrate Earth Day",
       "message": "Join us as we celebrate earth day! 🌍",
       "date": "2023-04-21T09:45:00.000Z",
       "sender": "Mazingira🌿",
       "image": "https://wallpapers.com/images/featured/87h46gcobjl5e4xu.jpg"
-    },
-    {
-      "title": "",
-      "message": "",
-      "sender": "Admin",
-      "image": "https://via.placeholder.com/50",
-      "user": "",
-      "id": 8
-    },
-    {
-      "title": "nbnnbnbb",
-      "message": "nbnbnbnbnb",
-      "sender": "Admin",
-      "image": "https://via.placeholder.com/50",
-      "user": "",
-      "id": 9
-    },
-    {
-      "title": "",
-      "message": "",
-      "sender": "Admin",
-      "image": "https://via.placeholder.com/50",
-      "user": "",
-      "id": 10
     }
   ],
   "messages": [
@@ -392,6 +352,21 @@
     },
     {
       "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
     }
   ],
   "user-engagement": [
@@ -560,6 +535,18 @@
       "name": "Bob Johnson",
       "email": "bob.johnson@example.com",
       "role": "donor"
+    },
+    {
+      "name": "UN",
+      "email": "un@gmail.com",
+      "role": "organization",
+      "id": 4
+    },
+    {
+      "name": "Bruno Kiptoo",
+      "email": "biwandagu@gmail.com",
+      "role": "organization",
+      "id": 5
     }
   ]
 }
