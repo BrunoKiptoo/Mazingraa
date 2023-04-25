@@ -152,12 +152,22 @@
 
 import React, { useState } from 'react';
 import { FaCreditCard, FaPaypal } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+
 
 function PaymentForm() {
   const [selectedOption, setSelectedOption] = useState('credit-card');
+  const history = useNavigate();
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
+    if (option === 'paypal') {
+        window.location.href = 'https://www.paypal.com/signin'; 
+      }
+      else if (option === 'net-banking') {
+        history('/mpesa-transactions'); 
+      }
+     
   };
 
   return (
@@ -210,7 +220,7 @@ function PaymentForm() {
           <form
             role="form"
             onSubmit={(e) => e.preventDefault()}
-            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-lg"
           >
             <div className="mb-4">
               <label
@@ -300,7 +310,7 @@ Submit
 )}
 {selectedOption === 'paypal' && (
 <div id="paypal" class="tab-pane fade pt-3">
-<p class="text-gray-700">You will be redirected to the PayPal website to complete your purchase.</p>
+<p class="text-gray-700">You will be redirected to the PayPal website to complete your donation.</p>
 </div>
 )}
 {selectedOption === 'net-banking' && (

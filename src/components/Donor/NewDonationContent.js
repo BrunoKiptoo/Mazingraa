@@ -1,28 +1,9 @@
 
 
-    // const handleDonate = async () => {
-    //   try {
-    //     const response = await fetch(`http://localhost:5000/organizations/${orgData.id}`, { method: 'POST' });
-    //     if (response.ok) {
-    //       setIsDonated(true);
-    //       setOrgData(null);
-    //     } else {
-    //       throw new Error('Failed to donate');
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //     alert('Failed to donate. Please try again later.');
-    //   }
-    // };
-    
-
-
-
-
-
 
 
 import React, { useState, useEffect } from 'react';
+import { FaPaypal, FaMobileAlt, FaCreditCard, FaEnvelope, FaGlobe, FaMapMarkerAlt  } from 'react-icons/fa';
 
 
 function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
@@ -75,39 +56,46 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
 
   return (
     <>
-      <div className="bg-gray-100 shadow-md rounded-md p-4">
-        <div className="flex-1 mr-6  mt-6">
-          <div className="">
-            <div className="flex">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4 flex-grow ml-4">
-                <div className="flex">
-                  <div className="flex-shrink-0">
-                    <img className="object-cover object-center h-24 w-24" src={orgData.image} alt="Organization Image" />
-                  </div>
-                  <div className="flex-grow p-6">
-                    <h3 className="text-gray-900 font-semibold text-lg mb-2">{orgData.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{orgData.description}</p>
-                    <p className="text-gray-600 text-sm mb-2">Email: {orgData.email}</p>
-                    <a href={orgData.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm mb-2 hover:underline">
-                      Website: {orgData.website}
-                    </a>
-                    <p className="text-gray-600 text-sm mb-2">Contact Person: {orgData.contactPerson}</p>
-                    {/* Wrap the Donate button inside an anchor tag */}
-                    <a href="/transactions">
-                      <button className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ${isDonated ? 'bg-green-600' : 'bg-blue-500'} mr-2`}>
-                        {isDonated ? 'Donated!' : 'Donate'}
-                      </button>
-                    </a>
-                    <button className={`bg-gray-400 hover:bg-gray-600 text-gray-800 text-white font-semibold py-2 px-4 rounded mt-2 ${addedToDonationList ? 'bg-green-600' : ''}`} onClick={handleAddToDonationList}>
-                      {addedToDonationList ? 'Added to Donation List' : 'Donate Later'}
-                    </button>
-                  </div>
-                </div>
+  <div className="bg-gray-100 shadow-md rounded-md p-4">
+  <div className="flex-1 mr-6 mt-6">
+    <div className="">
+      <div className="flex">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4 flex-grow ml-4">
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <img className="object-cover object-center h-24 w-24 rounded-full" src={orgData.image} alt="Organization Image" />
+            </div>
+            <div className="flex-grow p-6">
+              <h3 className="text-gray-900 font-semibold text-lg mb-2">{orgData.name}</h3>
+              <p className="text-gray-600 text-sm mb-4">{orgData.description}</p>
+              <p className="text-black text-sm mb-2"><FaPaypal className="inline-block mr-1" />Paypal: {orgData.email}</p>
+              <p className="text-black text-sm mb-2"><FaMobileAlt className="inline-block mr-1" />M-Pesa Number: {orgData.phone}</p>
+              <p className="text-black text-sm mb-2"><FaMapMarkerAlt  className="inline-block mr-1" />{orgData.location}</p>
+              <a href={orgData.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm mb-4 hover:underline">
+                <FaGlobe className="inline-block mr-1" />
+                {orgData.website}
+              </a>
+              <p className="text-gray-600 text-sm py-2 mb-2">Contact Person: {orgData.contactPerson}</p>
+              <div className="flex items-center mt-4">
+                <a href="/transactions">
+                  <button className={`bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded mr-2 ${isDonated ? 'bg-green-600' : ''}`}>
+                    {isDonated ? 'Donated!' : 'Donate'}
+                  </button>
+                </a>
+                <button className={`bg-gray-400 hover:bg-gray-600 text-gray-800 text-white font-semibold py-2 px-4 rounded ${addedToDonationList ? 'bg-green-600' : ''}`} onClick={handleAddToDonationList}>
+                  {addedToDonationList ? 'Added to Donation List' : 'Donate Later'}
+                </button>
               </div>
             </div>
           </div>
+        
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
     </>
   );
 }
