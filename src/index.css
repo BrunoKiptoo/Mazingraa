@@ -251,3 +251,12 @@ body {
 }
 
 
+.image-btn {
+  background-image: url('/src/assets/mpesa-logo.png');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  padding: 0;
+  width: 110px;
+  height: 50px;
+}
