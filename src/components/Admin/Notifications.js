@@ -85,7 +85,7 @@
 //     title: '',
 //     message: '',
 //     sender: 'Admin',
-//     image: 'https://via.placeholder.com/50',
+//     profilepic: 'https://via.placeholder.com/50',
 //     user: ''
 //   });
 
@@ -154,7 +154,7 @@
          
 
 // sender: 'Admin',
-// image: 'https://via.placeholder.com/50',
+// profilepic: 'https://via.placeholder.com/50',
 // user: ''
 // });
 // setShowModal(false);
@@ -168,7 +168,7 @@
 // {notifications.map(notification => (
 // <div key={notification.id} className="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
 // <div className="flex items-center">
-// <img src={notification.image} alt="user avatar" className="w-10 h-10 rounded-full mr-4" />
+// <img src={notification.profilepic} alt="user avatar" className="w-10 h-10 rounded-full mr-4" />
 // <div>
 // <h2 className="text-md font-medium text-gray-800">{notification.title}</h2>
 // <p className="text-sm text-gray-600">{notification.message}</p>
@@ -216,6 +216,7 @@
 // export default Notifications;
 
 import React, { useState, useEffect } from 'react';
+import {FaTrash} from 'react-icons/fa';
 
 function Notifications() {
 
@@ -230,7 +231,7 @@ function Notifications() {
     title: '',
     message: '',
     sender: 'Admin',
-    image: 'https://via.placeholder.com/50',
+    profilepic: 'https://via.placeholder.com/50',
     user: ''
   });
   const [sendToAll, setSendToAll] = useState(true);
@@ -288,7 +289,7 @@ function Notifications() {
     if (sendToAll) {
       url = 'http://localhost:5000/notifications/all';
     } else {
-      url = `http://localhost:5000/notifications/${formData.user}`;
+      url = `http://localhost:5000/notifications/${formData.reciever}`;
     }
     fetch(url, {
       method: 'POST',
@@ -304,7 +305,7 @@ function Notifications() {
           title: '',
           message: '',
           sender: 'Admin',
-          image: 'https://via.placeholder.com/50',
+          profilepic: 'https://via.placeholder.com/50',
           user: ''
         });
         setShowModal(false);
@@ -317,83 +318,108 @@ function Notifications() {
   };
 
   return (
-    <div>
-    <h1>Notifications</h1>
-    <div>
-      <button onClick={() => setShowCreateModal(true)}>Create Notification</button>
-      <button onClick={() => setShowClearModal(true)}>Clear All Notifications</button>
+    <div class="bg-white shadow rounded-lg p-4">
+    <h1 class="text-xl font-medium text-gray-800">Notifications</h1>
+    <div class="flex justify-between mb-4">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => setShowCreateModal(true)}>Create Notification</button>
+     
     </div>
-  
+    
     <div>
       {notifications.map(notification => (
-        <div key={notification.id}>
-          <h2>{notification.title}</h2>
-          <p>{notification.message}</p>
-          <p>{notification.sender}</p>
-          <p>{notification.createdAt.toLocaleString()}</p>
-          <button onClick={() => handleDeleteNotification(notification.id)}>Delete</button>
-        </div>
+         <div key={notification.id} className="p-3 mb-3 bg-gray-50 rounded-lg flex items-center reminder-card">
+         <img className="w-8 h-8 rounded-full mr-3" src={notification.profilepic} alt={`${notification.reciever}'s profile picture`} />
+         <div>
+           <span className="text-sm text-gray-900 font-bold">{notification.reciever}</span>
+           {/* <p className="text-xs text-black-500 mt-1">{notification.createdAt.toLocaleString()}</p> */}
+           <p className="text-xs text-black-500 mt-1">{notification.createdAt ? notification.createdAt.toLocaleString() : ''}</p>
+
+         </div>
+         <div className="ml-4 flex-grow">
+           <h3 className="text-base font-medium text-gray-800">{notification.title} </h3>
+           <p className="mt-1 text-sm text-gray-600">{notification.message}</p>
+         </div>
+         <div>
+           <button className="text-sm text-gray-700 mr-2" onClick={() => handleDeleteNotification(notification.id)}><FaTrash/>Delete</button>
+         </div>
+       </div>
       ))}
-    </div>
-  
-    {showCreateModal && (
-    <div className="fixed z-50 inset-0 overflow-y-auto">
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4">Create Notification</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="title" className="block font-bold mb-2">Title:</label>
-            <input type="text" id="title" name="title" value={formData.title} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block font-bold mb-2">Message:</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full"></textarea>
-          </div>
-          <div className="mb-4">
-            <label htmlFor="sender" className="block font-bold mb-2">Sender:</label>
-            <input type="text" id="sender" name="sender" value={formData.sender} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="image" className="block font-bold mb-2">Image:</label>
-            <input type="text" id="image" name="image" value={formData.image} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="user" className="block font-bold mb-2">User:</label>
-            <input type="text" id="user" name="user" value={formData.user} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
-          </div>
-          <div className="mb-4">
-            <label className="block font-bold mb-2">Send to:</label>
-            <select value={sendToAll ? 'all' : 'user'} onChange={handleSendToAllChange} className="border-2 border-gray-300 rounded-lg p-2 w-full">
-              <option value="all">All Users</option>
-              <option value="user">Selected User</option>
-            </select>
-          </div>
-          <div className="flex justify-end">
-            <button type="submit" className="bg-blue-500 text-white rounded-lg py-2 px-4 mr-2">Send</button>
-            <button onClick={() => setShowCreateModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">Cancel</button>
-          </div>
-        </form>
+
+{notifications.length > 0 &&
+      <div className="mt-4">
+        <button className="py-2 px-4 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-800 hover:to-red-600 focus:ring-red-600 focus:ring-offset-red-800 text-white inline-flex justify-center rounded-md border border-transparent shadow-sm font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2
+" onClick={() => setShowClearModal(true)}>Clear all notifications</button>
       </div>
+    }
     </div>
-   </div>
-   
-)}
-  
-  {showClearModal && (
+
+
+
+    {/* ************************************showCreateModal******************************************* */}
+ 
+    {showCreateModal && (
   <div className="fixed z-50 inset-0 overflow-y-auto">
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-bold mb-4">Clear All Notifications</h2>
-        <p className="mb-4">Are you sure you want to clear all notifications?</p>
-        <div className="flex justify-end">
-          <button onClick={() => handleClearNotifications()} className="bg-red-500 text-white rounded-lg py-2 px-4 mr-2">Yes</button>
-          <button onClick={() => setShowClearModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">No</button>
+  <div className="flex items-center justify-center ">
+    <div className="bg-white rounded-lg shadow-lg  w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-4">Create Notification</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="title" className="block font-bold mb-2">Title:</label>
+          <input type="text" id="title" name="title" value={formData.title} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
         </div>
+        <div className="mb-4">
+          <label htmlFor="message" className="block font-bold mb-2">Message:</label>
+          <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full"></textarea>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="sender" className="block font-bold mb-2">Sender:</label>
+          <input type="text" id="sender" name="sender" value={formData.sender} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+        </div>
+        {/* <div className="mb-4">
+          <label htmlFor="profilepic" className="block font-bold mb-2">profilepic:</label>
+          <input type="text" id="profilepic" name="profilepic" value={formData.profilepic} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+        </div> */}
+        <div className="mb-4">
+          <label htmlFor="user" className="block font-bold mb-2">User:</label>
+          <input type="text" id="user" name="user" value={formData.reciever} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+        </div>
+        <div className="mb-4">
+          <label className="block font-bold mb-2">Send to:</label>
+          <select value={sendToAll ? 'all' : 'user'} onChange={handleSendToAllChange} className="border-2 border-gray-300 rounded-lg p-2 w-full">
+            <option value="all">All Users</option>
+            <option value="user">Selected User</option>
+          </select>
+        </div>
+        <div className="flex justify-end">
+          <button type="submit" className="bg-blue-500 text-white rounded-lg py-2 px-4 mr-2">Send</button>
+          <button onClick={() => setShowCreateModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+ </div>
+ 
+)}
+{/* ************************************showCreateModal******************************************* */}
+{showClearModal && (
+<div className="fixed z-50 inset-0 overflow-y-auto">
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      <h2 className="text-2xl font-bold mb-4">Clear All Notifications</h2>
+      <p className="mb-4">Are you sure you want to clear all notifications?</p>
+      <div className="flex justify-end">
+        <button onClick={() => handleClearNotifications()} className="bg-red-500 text-white rounded-lg py-2 px-4 mr-2">Yes</button>
+        <button onClick={() => setShowClearModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">No</button>
       </div>
     </div>
   </div>
+</div>
 )}
+
+   {/* ************************************showCreateModal******************************************* */}
+ 
+
+{/* ************************************Modal******************************************* */}
 
   </div>
   
@@ -402,3 +428,96 @@ function Notifications() {
       }  
 
   export default Notifications
+
+
+
+
+
+
+
+
+//   <div>
+//   <h1>Notifications</h1>
+//   <div>
+//     <button onClick={() => setShowCreateModal(true)}>Create Notification</button>
+//     <button onClick={() => setShowClearModal(true)}>Clear All Notifications</button>
+//   </div>
+
+//   <div>
+//     {notifications.map(notification => (
+//       <div key={notification.id}>
+//         <h2>{notification.title}</h2>
+//         <p>{notification.message}</p>
+//         <p>{notification.sender}</p>
+//         <p>{notification.createdAt.toLocaleString()}</p>
+//         <button onClick={() => handleDeleteNotification(notification.id)}>Delete</button>
+//       </div>
+//     ))}
+//   </div>
+//   ************************************showCreateModal*******************************************
+//   {showCreateModal && (
+//   <div className="fixed z-50 inset-0 overflow-y-auto">
+//   <div className="flex items-center justify-center min-h-screen">
+//     <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+//       <h2 className="text-2xl font-bold mb-4">Create Notification</h2>
+//       <form onSubmit={handleSubmit}>
+//         <div className="mb-4">
+//           <label htmlFor="title" className="block font-bold mb-2">Title:</label>
+//           <input type="text" id="title" name="title" value={formData.title} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="message" className="block font-bold mb-2">Message:</label>
+//           <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full"></textarea>
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="sender" className="block font-bold mb-2">Sender:</label>
+//           <input type="text" id="sender" name="sender" value={formData.sender} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="profilepic" className="block font-bold mb-2">profilepic:</label>
+//           <input type="text" id="profilepic" name="profilepic" value={formData.profilepic} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="user" className="block font-bold mb-2">User:</label>
+//           <input type="text" id="user" name="user" value={formData.user} onChange={handleInputChange} className="border-2 border-gray-300 rounded-lg p-2 w-full" />
+//         </div>
+//         <div className="mb-4">
+//           <label className="block font-bold mb-2">Send to:</label>
+//           <select value={sendToAll ? 'all' : 'user'} onChange={handleSendToAllChange} className="border-2 border-gray-300 rounded-lg p-2 w-full">
+//             <option value="all">All Users</option>
+//             <option value="user">Selected User</option>
+//           </select>
+//         </div>
+//         <div className="flex justify-end">
+//           <button type="submit" className="bg-blue-500 text-white rounded-lg py-2 px-4 mr-2">Send</button>
+//           <button onClick={() => setShowCreateModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">Cancel</button>
+//         </div>
+//       </form>
+//     </div>
+//   </div>
+//  </div>
+ 
+// )}
+
+// ************************************showCreateModal*******************************************
+
+
+//  ************************************showCreateModal*******************************************
+// {showClearModal && (
+// <div className="fixed z-50 inset-0 overflow-y-auto">
+//   <div className="flex items-center justify-center min-h-screen">
+//     <div className="bg-white rounded-lg shadow-lg p-6">
+//       <h2 className="text-2xl font-bold mb-4">Clear All Notifications</h2>
+//       <p className="mb-4">Are you sure you want to clear all notifications?</p>
+//       <div className="flex justify-end">
+//         <button onClick={() => handleClearNotifications()} className="bg-red-500 text-white rounded-lg py-2 px-4 mr-2">Yes</button>
+//         <button onClick={() => setShowClearModal(false)} className="bg-gray-300 text-gray-700 rounded-lg py-2 px-4">No</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+// )}
+
+// ************************************showCreateModal*******************************************
+
+// </div>

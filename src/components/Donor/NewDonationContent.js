@@ -3,13 +3,19 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { FaPaypal, FaMobileAlt, FaCreditCard, FaEnvelope, FaGlobe, FaMapMarkerAlt  } from 'react-icons/fa';
+import { FaPaypal, FaMobileAlt, FaCreditCard, FaEnvelope, FaGlobe, FaMapMarkerAlt, FaCopy  } from 'react-icons/fa';
 
 
 function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
   const [isDonated, setIsDonated] = useState(false);
   const [orgData, setOrgData] = useState(organization);
   const [addedToDonationList, setAddedToDonationList] = useState(false);
+
+  
+    const copyToClipboard = (text) => {
+      navigator.clipboard.writeText(text);
+      alert(`${text} copied to clipboard!`);
+    };
 
   const handleDonate = async () => {
     try {
@@ -68,8 +74,24 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
             <div className="flex-grow p-6">
               <h3 className="text-gray-900 font-semibold text-lg mb-2">{orgData.name}</h3>
               <p className="text-gray-600 text-sm mb-4">{orgData.description}</p>
-              <p className="text-black text-sm mb-2"><FaPaypal className="inline-block mr-1" />Paypal: {orgData.email}</p>
-              <p className="text-black text-sm mb-2"><FaMobileAlt className="inline-block mr-1" />M-Pesa Number: {orgData.phone}</p>
+              <div>
+      <p className="text-black text-sm mb-2">
+        <FaPaypal className="inline-block mr-1" />
+        Paypal:
+        <span onClick={() => copyToClipboard(orgData.email)} className="cursor-pointer ml-1">
+          {orgData.email}
+          <FaCopy className="inline-block ml-1" />
+        </span>
+      </p>
+      <p className="text-black text-sm mb-2">
+        <FaMobileAlt className="inline-block mr-1" />
+        M-Pesa Number:
+        <span onClick={() => copyToClipboard(orgData.phone)} className="cursor-pointer ml-1">
+          {orgData.phone}
+          <FaCopy className="inline-block ml-1" />
+        </span>
+      </p>
+    </div>
               <p className="text-black text-sm mb-2"><FaMapMarkerAlt  className="inline-block mr-1" />{orgData.location}</p>
               <a href={orgData.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm mb-4 hover:underline">
                 <FaGlobe className="inline-block mr-1" />

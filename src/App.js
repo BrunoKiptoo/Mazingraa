@@ -20,6 +20,7 @@ import DonorLogin from '../src/components/Donor/DonorLogin';
 import OrgLogin from '../src/components/Organization/OrgLogin';
 import DonationForm from './components/Donor/DonationForm';
 // import MpesaPayment from './components/Donor/MpesaPayment'
+// import MpesaPayment from './components/Donor/MpesaPayment';
 
 
 
@@ -34,7 +35,7 @@ function App() {
           <Route exact path="/" Component={LandingPage} /> 
           <Route exact path="/organization-login" Component={OrgLogin} /> 
           <Route exact path="/donor-login" Component={DonorLogin} /> 
-          <Route exact path="/admin-login" Component={AdminLogin} /> 
+          <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} /> 
           <Route exact path="/donorregistration" Component={GeneralRegistrationForm} />
           <Route exact path="/learnmore" Component={LearnMore} /> 
           <Route exact path="/registration" Component={GeneralRegistrationForm} /> 

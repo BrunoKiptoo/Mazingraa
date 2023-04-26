@@ -260,3 +260,27 @@ body {
   width: 110px;
   height: 50px;
 }
+
+/* 
+.mpesa {
+  background-image: url('/src/assets/mpesa-logo.png');
+  text-indent: -9999px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  padding: 0;
+  width: 200px;
+  height: 50px;
+} */
+
+.mpesa {
+  background-image: url('/src/assets/mpesa-logo.png');
+  text-indent: -9999px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  padding: 0;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+}
