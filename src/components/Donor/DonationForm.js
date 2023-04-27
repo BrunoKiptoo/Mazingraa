@@ -342,12 +342,17 @@ Submit
 </form>
 
 )}
+
+
 {selectedOption === 'paypal' && (
 <div id="paypal" class="tab-pane fade pt-3">
 <p class="text-gray-700">You will be redirected to the PayPal website to complete your donation.</p>
 </div>
 )}
- <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+
+
+{selectedOption === 'net-banking' && (
+ <div className="">
       <div className="w-full max-w-md p-8 bg-white rounded-md shadow-lg">
       <div className="flex justify-center">
   <h2 className="text-xl font-bold mb-4 mpesa">M-PESA Payment</h2>
@@ -414,6 +419,7 @@ Submit
         {resultMessage && <p className="mt-4">{resultMessage}</p>}
       </div>
     </div>
+    )}
 </div>
 </div>
 

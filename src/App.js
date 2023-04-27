@@ -20,7 +20,7 @@ import DonorLogin from '../src/components/Donor/DonorLogin';
 import OrgLogin from '../src/components/Organization/OrgLogin';
 import DonationForm from './components/Donor/DonationForm';
 // import MpesaPayment from './components/Donor/MpesaPayment'
-// import MpesaPayment from './components/Donor/MpesaPayment';
+import MpesaPayment from './components/Donor/MpesaPayment';
 
 
 
@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/organization-dashboard" Component={OrganizationDahboard} />
           <Route exact path="/admin-dashboard" Component={Dashboard} />  
           <Route exact path="/transactions" Component={DonationForm} /> 
-          {/* <Route exact path="/mpesa-transactions" Component={MpesaPayment} /> */}
+          <Route exact path="/mpesa-transactions" Component={MpesaPayment} />
        
 
 

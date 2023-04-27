@@ -1,41 +1,46 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function MpesaPayment() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [amount, setAmount] = useState("");
-  const [transactionDesc, setTransactionDesc] = useState("");
-  const [currency, setCurrency] = useState("KES");
-  const [resultMessage, setResultMessage] = useState("");
-  
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [amount, setAmount] = useState('');
+  const [currency, setCurrency] = useState('KES');
+  const [transactionDesc, setTransactionDesc] = useState('');
+  const [resultMessage, setResultMessage] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const transaction = { phoneNumber, amount, transactionDesc, currency };
-    fetch('/api/transactions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(transaction)
-    })
-    .then(response => response.json())
-    .then(data => {
-      setResultMessage(`Payment successful. Transaction ID: ${data.transactionId}`);
-      setPhoneNumber("");
-      setAmount("");
-      setTransactionDesc("");
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      setResultMessage('An error occurred. Please try again.');
-    });
-  }
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+
+        // so here is the ruby api server and its endpoints that we created is this okay ?
+        
+      const response = await fetch('http://127.0.0.1:3000/mpesa/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          phone: phoneNumber,
+          amount: amount,
+          currency: currency,
+          description: transactionDesc
+        })
+      });
+
+      const data = await response.json();
+      setResultMessage(data.message);
+    } catch (error) {
+      console.error(error);
+      setResultMessage('An error occurred while processing your payment.');
+    }
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="">
       <div className="w-full max-w-md p-8 bg-white rounded-md shadow-lg">
-      <div className="flex justify-center">
-  <h2 className="text-xl font-bold mb-4 mpesa">M-PESA Payment</h2>
-</div>
+        <div className="flex justify-center">
+          <h2 className="text-xl font-bold mb-4 mpesa">M-PESA Payment</h2>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -97,8 +102,12 @@ function MpesaPayment() {
         </form>
         {resultMessage && <p className="mt-4">{resultMessage}</p>}
       </div>
-    </div>
+      </div>
   );
 }
-
 export default MpesaPayment;
+
+
+
+
+   

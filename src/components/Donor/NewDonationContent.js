@@ -85,9 +85,9 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       </p>
       <p className="text-black text-sm mb-2">
         <FaMobileAlt className="inline-block mr-1" />
-        M-Pesa Number:
-        <span onClick={() => copyToClipboard(orgData.phone)} className="cursor-pointer ml-1">
-          {orgData.phone}
+        M-Pesa Express:
+        <span onClick={() => copyToClipboard(orgData.orgShortCode)} className="cursor-pointer ml-1">
+          {orgData.orgShortCode}
           <FaCopy className="inline-block ml-1" />
         </span>
       </p>
