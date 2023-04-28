@@ -406,11 +406,12 @@ function GeneralRegistration() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    confirmPassword: '',
+    name: '',
+    website: '',
     registrationType: 'donor',
   });
   const [errors, setErrors] = useState({});
-  const [showModal, setShowModal] = useState(false); // Add state for modal
+  const [showModal, setShowModal] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -420,9 +421,9 @@ function GeneralRegistration() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, confirmPassword, registrationType } = formData;
+    const { email, password, registrationType, name, website } = formData;
     let errors = {};
-    // Validation
+
     if (!email) {
       errors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -433,25 +434,74 @@ function GeneralRegistration() {
     } else if (password.length < 6) {
       errors.password = 'Password must be at least 6 characters';
     }
-    if (registrationType === 'organization' && !confirmPassword) {
-      errors.confirmPassword = 'Confirm Password is required';
-    } else if (registrationType === 'organization' && confirmPassword !== password) {
-      errors.confirmPassword = 'Passwords do not match';
+
+    if (registrationType === 'organization') {
+      if (!name) {
+        errors.name = 'Name is required';
+      } else if (!/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(name)) {
+        errors.name = 'Invalid name';
+      }
     }
 
+    console.log('Form data:', formData);
+    console.log('Errors:', errors);
+
     if (Object.keys(errors).length === 0) {
-      // Submit form data
       if (registrationType === 'donor') {
-        // Redirect to donor dashboard
-        window.location.href = '/donor-dashboard';
+        fetch('http://localhost:5000/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            registrationType,
+          }),
+        })
+          .then((response) => {
+            console.log('Response:', response);
+            if (response.ok) {
+              window.location.href = '/donor-dashboard';
+            } else {
+              throw new Error('Failed to create donor account');
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else if (registrationType === 'organization') {
-        // Apply to be an organization on the platform and set up organization details
-        setShowModal(true); // Set showModal to true
+        fetch('http://localhost:5000/applications', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            website,
+          }),
+        })
+          .then((response) => {
+            console.log('Response:', response);
+            if (response.ok) {
+              setShowModal(true);
+            } else {
+              throw new Error('Failed to apply to be an organization');
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
     } else {
       setErrors(errors);
     }
   };
+
+
+  
 
   return (
 <div className="flex justify-center items-center min-h-screen bg2 ">
@@ -495,21 +545,50 @@ function GeneralRegistration() {
       {formData.registrationType === 'organization' && (
         <div className="mb-4">
           <label htmlFor="confirmPassword" className="block mb-2 font-medium">
-            Confirm Password
+            Official Organization Name
           </label>
           <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-            className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${errors.confirmPassword ? 'border-red-500' : ''}`}
-            placeholder="Confirm Password"
-          />
-          {errors.confirmPassword && (
-            <p className="text-red-500 mt-1">{errors.confirmPassword}</p>
-          )}
+            type="name"
+            id="name"
+            name="name"
+            value={formData.name}
+          onChange={handleInputChange}
+          className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${errors.name ? 'border-red-500' : ''}`}
+          placeholder="Your Organization's Name"
+        />
+        {errors.name && (
+          <p className="text-red-500 mt-1">{errors.name}</p>
+        )}
+
+         
         </div>
+
+        
+      )}
+
+{formData.registrationType === 'organization' && (
+        <div className="mb-4">
+          <label htmlFor="website" className="block mb-2 font-medium">
+           Official Website
+          </label>
+          <input
+            type="website"
+            id="website"
+            name="website"
+            value={formData.website}
+            onChange={handleInputChange}
+            // className={`w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 ${errors.website ? 'border-red-500' : ''}`}
+            className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+            placeholder="Your Official Website"
+          />
+          {errors.website && (
+          <p className="text-red-500 mt-1">{errors.website}</p>
+        )}
+
+         
+        </div>
+
+        
       )}
 
 
@@ -531,6 +610,7 @@ function GeneralRegistration() {
       <button
         type="submit"
         className="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 rounded-md text-white font-medium"
+       
       >
         Register
       </button>
@@ -541,7 +621,7 @@ function GeneralRegistration() {
 <p>
 Thank you for your interest in becoming an organization on our platform. 
 Your application has been sent and is being reviwed. 
-You will be contacted after the review is completed.
+You will be contacted through your email after the review is completed.
 </p>
 {/* Add organization application form here */}
 </div>

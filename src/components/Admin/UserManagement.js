@@ -179,15 +179,15 @@
 
 import React, { useState, useEffect } from 'react';
 
-function ApplicationManagement() {
+function UserManagement() {
 const [applications, setApplications] = useState([]);
 const [loading, setLoading] = useState(false);
 const [editingApplicationId, setEditingApplicationId] = useState(null);
-const [newApplication, setNewApplication] = useState({ name: '', email: '', organization: '', status: 'pending' });
+const [newApplication, setNewApplication] = useState({ name: '', email: '', website: '', status: 'pending' });
 
 useEffect(() => {
 setLoading(true);
-fetch('http://localhost:5000/users')
+fetch('http://localhost:5000/applications')
 .then(res => res.json())
 .then(data => {
 setApplications(data);
@@ -222,7 +222,7 @@ const updatedApplications = editingApplicationId
 ? applications.map(application => (application.id === editingApplicationId ? savedApplication : application))
 : [...applications, savedApplication];
 setApplications(updatedApplications);
-setNewApplication({ name: '', email: '', organization: '', status: 'pending' });
+setNewApplication({ name: '', email: '', website: '', status: 'pending' });
 setEditingApplicationId(null);
 setLoading(false);
 })
@@ -252,34 +252,83 @@ setNewApplication(prevApplication => ({ ...prevApplication, [name]: value }));
 };
 
 const handleStatusChange = (applicationId, newStatus) => {
-setLoading(true);
-const updatedApplication = applications.find(application => application.id === applicationId);
-updatedApplication.status = newStatus;
-fetch('http://localhost:5000/applications/${applicationId}', {
-method: 'PUT',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify(updatedApplication),
-})
-.then(res => res.json())
-.then(savedApplication => {
-const updatedApplications = applications.map(application =>
-application.id === savedApplication.id ? savedApplication : application
-);
-setApplications(updatedApplications);
-setLoading(false);
-})
-.catch(err => {
-console.error(err);
-setLoading(false);
-});
+  setLoading(true);
+  const updatedApplication = applications.find(application => application.id === applicationId);
+  updatedApplication.status = newStatus;
+  updatedApplication.name = updatedApplication.name || '';
+  updatedApplication.email = updatedApplication.email || '';
+  updatedApplication.website = updatedApplication.website || '';
+  
+  fetch(`http://localhost:5000/applications/${applicationId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedApplication),
+  })
+    .then(res => res.json())
+    .then(savedApplication => {
+      if (newStatus === 'accepted') {
+        const newOrganization = {
+          name: updatedApplication.name ? updatedApplication.name : '',
+  email: updatedApplication.email ? updatedApplication.email : '',
+  website: updatedApplication.website ? updatedApplication.website : '',
+  status: 'active',
+        };
+        console.log('newOrganization:', newOrganization); // add this line to check newOrganization
+        fetch('http://localhost:5000/organizations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newOrganization),
+        })
+          .then(res => res.json())
+          .then(savedOrganization => {
+            console.log('savedApplication:', savedOrganization); // add this line to check savedOrganization
+            // Send email to the organization
+            const emailjs = require('emailjs-com');
+            const templateParams = {
+              to_name: savedOrganization.name,
+              to_email: savedOrganization.email,
+              message_html: `Congratulations! After carefully reviewing the legitimacy and credibility of your organization, You have been accepted to join the Mazingira platform. Please click on the following link to login and setup your organization details: http://localhost:5000/organization-login`
+            };
+            emailjs.send('service_65qzd7r', 'template_6r5cibg', templateParams, 'vIZosvxHBrDlxjMHG')
+              .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+              }, function(error) {
+                console.log('FAILED...', error);
+              });
+            setLoading(false);
+          })
+          .catch(err => {
+            console.error(err);
+            setLoading(false);
+          });
+      } else {
+        const updatedApplications = applications.map(application =>
+          application.id === savedApplication.id ? savedApplication : application
+        );
+        setApplications(updatedApplications);
+        setLoading(false);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      setLoading(false);
+    });
 };
+
+
 
 function handleCancelClick() {
   // Add your logic here to handle the cancel click event
   console.log("Cancel button clicked");
 }
+
+
+
+
 
 
 return (
@@ -290,7 +339,7 @@ return (
       <tr>
         <th className="px-4 py-2">Name</th>
         <th className="px-4 py-2">Email</th>
-        <th className="px-4 py-2">Organization</th>
+        <th className="px-4 py-2">Website</th>
         <th className="px-4 py-2">Status</th>
         <th className="px-4 py-2">Actions</th>
       </tr>
@@ -307,7 +356,7 @@ return (
           <tr key={application.id}>
             <td className="border px-4 py-2">{application.name}</td>
             <td className="border px-4 py-2">{application.email}</td>
-            <td className="border px-4 py-2">{application.organization}</td>
+            <td className="border px-4 py-2">{application.website}</td>
             <td className="border px-4 py-2">
               <select
                 className="bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
@@ -359,13 +408,13 @@ return (
   />
   </div>
   <div className="mb-4">
-  <label className="block text-gray-700 font-bold mb-2" htmlFor="organization">Organization</label>
+  <label className="block text-gray-700 font-bold mb-2" htmlFor="website">Website</label>
   <input
        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-       id="organization"
-       name="organization"
+       id="website"
+       name="website"
        type="text"
-       value={newApplication.organization}
+       value={newApplication.website}
        onChange={handleInputChange}
      />
   </div>
@@ -398,4 +447,4 @@ return (
   </div>
 );
 }
-export default ApplicationManagement;
+export default UserManagement;

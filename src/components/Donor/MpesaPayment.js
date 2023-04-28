@@ -13,7 +13,7 @@ function MpesaPayment() {
     try {
 
         // so here is the ruby api server and its endpoints that we created is this okay ?
-        
+
       const response = await fetch('http://127.0.0.1:3000/mpesa/create', {
         method: 'POST',
         headers: {
@@ -82,19 +82,6 @@ function MpesaPayment() {
                 <option value="EUR">EUR</option>
               </select>
             </div>
-          </div>
-          <div className="mb-4">
-            <label htmlFor="transaction-desc" className="block font-medium mb-2">
-              Transaction Description:
-            </label>
-            <input
-              id="transaction-desc"
-              type="text"
-              required
-              className="border border-gray-300 rounded-md w-full p-2"
-              value={transactionDesc}
-              onChange={(e) => setTransactionDesc(e.target.value)}
-            />
           </div>
           <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2 px-4">
             Submit Payment
