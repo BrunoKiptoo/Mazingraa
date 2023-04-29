@@ -118,6 +118,13 @@
       "website": "https://www.greenearth.org",
       "status": "active",
       "id": 17
+    },
+    {
+      "name": "Liverpool",
+      "email": "kiplame@gmail.com",
+      "website": "liverpoolbottlers.com",
+      "status": "active",
+      "id": 18
     }
   ],
   "reminders": [
@@ -652,6 +659,12 @@
       "password": "password1",
       "registrationType": "donor",
       "id": 10
+    },
+    {
+      "email": "hillary1@gmail.com",
+      "password": "password1",
+      "registrationType": "donor",
+      "id": 11
     }
   ],
   "applications": [
@@ -671,7 +684,8 @@
       "id": 3,
       "name": "Nature's Call",
       "email": "info@naturescall.org",
-      "website": "https://www.naturescall.org"
+      "website": "https://www.naturescall.org",
+      "status": "rejected"
     },
     {
       "id": 2,
@@ -695,6 +709,22 @@
       "password": "123456",
       "website": "info@naturescall.org",
       "id": 7
+    },
+    {
+      "name": "Liverpool",
+      "email": "gangsta1@gmail.com",
+      "password": "password1",
+      "website": "liverpoolbottlers.com",
+      "id": 8,
+      "status": "rejected"
+    },
+    {
+      "name": "Liverpool",
+      "email": "kiplame@gmail.com",
+      "password": "123456",
+      "website": "liverpoolbottlers.com",
+      "id": 9,
+      "status": "accepted"
     }
   ]
 }
