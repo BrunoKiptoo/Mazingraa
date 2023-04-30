@@ -462,7 +462,7 @@ function GeneralRegistration() {
           .then((response) => {
             console.log('Response:', response);
             if (response.ok) {
-              window.location.href = '/donor-dashboard';
+              window.location.href = '/donor-login';
             } else {
               throw new Error('Failed to create donor account');
             }

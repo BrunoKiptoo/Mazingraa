@@ -75,7 +75,7 @@ function ReminderContent({ reminder, onReminder }) {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const response = await fetch(' http://localhost:5000/events');
+      const response = await fetch(' https://mazingira-api.onrender.com/events');
       const data = await response.json();
       setEvents(data);
     };
@@ -87,7 +87,7 @@ function ReminderContent({ reminder, onReminder }) {
     onReminder(reminder);
     setAddedToReminder(true);
 
-    const response = await fetch(' http://localhost:5000/reminders', {
+    const response = await fetch(' https://mazingira-api.onrender.com/reminders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

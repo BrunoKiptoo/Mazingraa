@@ -18,6 +18,8 @@ import NotificationsModal from './DonorModals.js/NotificationsModal';
 import TransactionHistory from './TransactionHistory';
 import TransactionHistoryModal from './DonorModals.js/TransactionHistoryModal';
 
+import { useLocation } from 'react-router-dom';
+
 
 
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -27,23 +29,49 @@ import {FaDonate, FaHistory, FaBell, FaHeart, FaEdit, FaSignOutAlt, FaHeartbeat,
 
 import ProfilePicture from './Profilepic';
 
-function Dashboard() {
+function Dashboard(props) {
+
+  
+  // const [name, setName] = useState("John Doe");
+  // const [email, setEmail] = useState("johndoe@example.com");
+
+  const [name, setName] = useState(props.username);
+  const [email, setEmail] = useState(props.email);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const email = searchParams.get('email');
+    const username = searchParams.get('username');
+
+    setEmail(email);
+    setName(username);
+  }, [location.search]);
+
+
 
  
- 
+
 
 
 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
+  const [searchTerm, setSearchTerm] = useState("");
+ 
   // const [profilePicture, setProfilePicture] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
   const [donationHistory, setDonationHistory] = useState([]);
   const [donationCount, setDonationCount] = useState(0);
+
+
+
+
+
+
 
 
 
@@ -64,13 +92,34 @@ function Dashboard() {
   }
 
   const handleSaveClick = () => {
+    fetch('http://localhost:5000/user', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        email: email,
+        username: name
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     setIsEditFormOpen(false);
   }
 
   // Function to handle email change
   const handleEmailChange = (e) => {
-  setEmail(e.target.value);
-  }
+    setEmail(e.target.value);
+    
+  };
+
+  
+  
 
   // Function to handle profile picture change
   const handleProfilePictureChange = (e) => {
@@ -84,6 +133,8 @@ function Dashboard() {
   };
 
 // ************************************************************FOR HANDLING HISTORYCONTENT**********************************************************************
+
+
 
 
   
@@ -152,7 +203,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/organizations');
+        const response = await fetch('https://mazingira-api.onrender.com/organizations');
         const data = await response.json();
         // Update state with fetched data
         setorganizations(data);
@@ -180,7 +231,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch(' http://localhost:5000/reminders');
+        const response = await fetch('https://mazingira-api.onrender.com/reminders');
         const data = await response.json();
         // Update state with fetched data
         setReminders(data);
@@ -494,12 +545,19 @@ onClick={() => setSelectedContent('support')}
 
                                               
 
+<div className='flex items-center justify-center'>
+  <img src='/src/assets/Mazingiralogo2.png' alt='Your Logo' className='w-20 h-20' />
+</div>
+
+
 
 
                                               {/* This is the START OF THE CONTENT AREA */}
 
 {/* ******These is where the props are passed from their imported components *************************************************************************************************** */}
 <div className=''>
+  
+
 <div className='md:pl-80 '>
   
 
@@ -511,7 +569,7 @@ onClick={() => setSelectedContent('support')}
 <div>
 {/* Render NewDonationContent component for each organization and pass the props */}
 {selectedContent === 'new-donation' &&
-organizations.map((org) => (
+organizations.map(org => (
 <NewDonationContent
 key={org.id}
 organization={org}
@@ -526,6 +584,7 @@ onAddToDonationList={handleAddToDonationList}
 {selectedContent === 'new-donation' && !isWelcomeShown && <NewDonationModal setIsWelcomeShown={setIsWelcomeShown}/>}
 
 </div>
+
 
 {/*******************End of NewDonation Content ********************************************** */}
 

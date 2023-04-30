@@ -19,6 +19,7 @@ function DonorNavBar(props) {
             your account settings, view your donations, and more.
           </p>
         </div>
+       
         <button
           className="py-2 px-4 bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] text-gray-600 font-medium rounded-md flex items-center justify-center shadow-md transition-colors duration-300"
           onClick={handleAccountSettingsClick}

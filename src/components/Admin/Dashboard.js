@@ -55,13 +55,31 @@ import SupportModal from './AdminModals/SupportModal';
 import {FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {FaBell, FaEdit, FaSignOutAlt,FaMoneyBillAlt, FaCalendarAlt, FaChartPie, FaHeartbeat, FaPhoneAlt, FaFileAlt, FaUsers, FaUserCog } from 'react-icons/fa';
 
+import { useLocation } from 'react-router-dom';
 
 
 
 
 
+function Dashboard(props) {
 
-function Dashboard() {
+  
+  // const [name, setName] = useState("John Doe");
+  // const [email, setEmail] = useState("johndoe@example.com");
+
+  const [name, setName] = useState(props.username);
+  const [email, setEmail] = useState(props.email);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const email = searchParams.get('email');
+    const username = searchParams.get('username');
+
+    setEmail(email);
+    setName(username);
+  }, [location.search]);
 
   
 
@@ -69,8 +87,8 @@ function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [profilePicture, setProfilePicture] = useState("");
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
+  // const [name, setName] = useState("John Doe");
+  // const [email, setEmail] = useState("johndoe@example.com");
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
   
@@ -87,8 +105,26 @@ function Dashboard() {
   }
 
   const handleSaveClick = () => {
+    fetch('http://localhost:5000/user', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        email: email,
+        username: name
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     setIsEditFormOpen(false);
   }
+
 
   // Function to handle email change
   const handleEmailChange = (e) => {

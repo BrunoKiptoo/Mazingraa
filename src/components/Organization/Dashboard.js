@@ -18,7 +18,7 @@ import Support from './Support';
 import MyImpactStories from './MyImpact/MyImpactStories';
 import AccountSettings from './AccountSettings';
 import AccountSettingsModal from './OrganizationModals/AccountSettingsModal';
-
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -31,16 +31,30 @@ import ProfilePicture from '../Donor/Profilepic';
 
 
 
-function Dashboard() {
+function Dashboard(props) {
 
-  
+  const [name, setName] = useState(props.username);
+  const [email, setEmail] = useState(props.email);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const email = searchParams.get('email');
+    const username = searchParams.get('username');
+
+    setEmail(email);
+    setName(username);
+  }, [location.search]);
+
+
 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [profilePicture, setProfilePicture] = useState("");
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
+  // const [name, setName] = useState("John Doe");
+  // const [email, setEmail] = useState("johndoe@example.com");
   // const [profilePicture, setProfilePicture] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
   const [isWelcomeShown, setIsWelcomeShown] = useState(false);
@@ -59,6 +73,23 @@ function Dashboard() {
   }
 
   const handleSaveClick = () => {
+    fetch('http://localhost:5000/user', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        email: email,
+        username: name
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     setIsEditFormOpen(false);
   }
 

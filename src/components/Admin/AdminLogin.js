@@ -66,7 +66,7 @@ function Login() {
     })
       .then(() => {
         // If the login request is successful, redirect the user to the dashboard page
-        window.location.href = '/admin-dashboard';
+        window.location.href = '/admin-dashboard?email=${email}&username=${username}';
       })
       .catch(error => console.error('Error logging in:', error));
   };

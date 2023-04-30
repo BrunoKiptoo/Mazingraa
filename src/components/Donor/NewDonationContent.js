@@ -58,10 +58,17 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       // Handle network error or error response here
     }
   };
+
+
   
 
   return (
+
+    
     <>
+  
+
+   
   <div className="bg-gray-100 shadow-md rounded-md p-4">
   <div className="flex-1 mr-6 mt-6">
     <div className="">
@@ -118,11 +125,18 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
 </div>
 
 
+
     </>
   );
 }
 
 export default NewDonationContent;
+
+
+
+
+
+
 
 
 

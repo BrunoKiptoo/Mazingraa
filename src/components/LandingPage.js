@@ -121,6 +121,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 import Logo from '../assets/Mazingiralogo3.png';
 import image from '../assets/image9.jpg';
+import Footer from './Footer';
 
 function LandingPage() {
   const [ref, inView] = useInView({
@@ -129,7 +130,8 @@ function LandingPage() {
   });
 
   return (
-    <div className="bg-[#042a30] h-screen flex justify-center items-center" ref={ref}>
+    <div>
+    <div className="bg-[#042a30] h-screen flex justify-center items-center relative rounded-lg overflow-hidden shadow-lg" ref={ref}>
       <div className="container mx-auto px-4 ">
   <div className="flex items-center justify-between mb-8 ">
     <img src={Logo} alt='logo' className=" h-30 w-60 absolute top-0 left-0  " /> 
@@ -191,23 +193,30 @@ function LandingPage() {
       </div>
     </div>
     <div className="flex gap-x-6 lg:gap-x-10">
-    <Link to="/donorregistration">
-      <button
-        className="bg-[#fff5e1] hover:bg-yellow-200 text-[#32594a] font-semibold py-2 px-4 rounded"
-        style={{ color: 'goldenrod' }}
-      >
-        Donate Now
-      </button>
-      </Link>
-      <Link to="/learnmore">
-      <button
-        className="bg-transparent hover:bg-yellow-200 text-[#fff5e1] font-semibold py-2 px-4 rounded border border-white"
-        style={{ color: 'goldenrod' }}
-      >
-        Learn More
-      </button>
-      </Link>
-    </div>
+  <Link to="/donorregistration">
+    <button
+      className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-2 px-4 rounded"
+    >
+      Join The Movement
+    </button>
+  </Link>
+  <Link to="/learnmore">
+    <button
+      className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-2 px-4 rounded"
+    >
+      Learn More
+    </button>
+  </Link>
+  <Link to="/organizations">
+    <button
+      className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-2 px-4 rounded"
+    >
+      Donate Now
+    </button>
+  </Link>
+</div>
+
+
   </div>
 </motion.div>
 <motion.div
@@ -221,6 +230,9 @@ function LandingPage() {
 </motion.div>
 </div>
 </div>
+
+</div>
+<Footer/>
 </div>
 );
 }

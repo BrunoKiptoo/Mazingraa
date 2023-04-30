@@ -74,7 +74,7 @@ import { FaCamera } from "react-icons/fa";
 
 function ProfilePicture({ initialProfilePicture }) {
   const [showModal, setShowModal] = useState(false);
-  const [picture, setPicture] = useState("");
+  const [profilepic, setPicture] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
 
   useEffect(() => {
@@ -98,10 +98,10 @@ function ProfilePicture({ initialProfilePicture }) {
     setShowModal(true);
   };
 
-  const saveProfilePicture = (picture) => {
-    fetch(" http://localhost:5000/profile-picture", {
+  const saveProfilePicture = (profilepic) => {
+    fetch(" http://localhost:5000/users", {
       method: "POST",
-      body: JSON.stringify({ picture }),
+      body: JSON.stringify({ profilepic }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -112,18 +112,18 @@ function ProfilePicture({ initialProfilePicture }) {
   };
 
   const getProfilePicture = () => {
-    fetch(" http://localhost:5000/profile-picture")
+    fetch(" http://localhost:5000/users")
       .then((response) => response.json())
-      .then((data) => setProfilePicture(data.picture))
+      .then((data) => setProfilePicture(data.profilepic))
       .catch((error) => console.log(error));
   };
 
   return (
     <div>
       <div className="relative">
-        {picture ? (
+        {profilepic ? (
           <img
-            src={picture}
+            src={profilepic}
             alt="Profile Picture"
             className="w-30 h-20 rounded-full"
           />

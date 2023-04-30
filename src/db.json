@@ -665,6 +665,30 @@
       "password": "password1",
       "registrationType": "donor",
       "id": 11
+    },
+    {
+      "email": "brunochelimo@gmail.com",
+      "password": "123456",
+      "registrationType": "donor",
+      "id": 12
+    },
+    {
+      "email": "alcapon@gmail.com",
+      "password": "123456",
+      "registrationType": "donor",
+      "id": 13
+    },
+    {
+      "email": "jungleamazon@gmail.com",
+      "password": "12345yu",
+      "registrationType": "donor",
+      "id": 14
+    },
+    {
+      "email": "jungleamazon@gmail.com",
+      "password": "12345hghgh",
+      "registrationType": "donor",
+      "id": 15
     }
   ],
   "applications": [

@@ -284,3 +284,17 @@ body {
   height: 50px;
   margin: 0 auto;
 }
+
+
+
+.logod {
+  background-image: url('/src/assets/Mazingiralogo2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  /* Add other styles as needed */
+  
+  /* <div className="logod"></div> */
+}
+

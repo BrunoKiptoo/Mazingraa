@@ -21,6 +21,10 @@ import OrgLogin from '../src/components/Organization/OrgLogin';
 import DonationForm from './components/Donor/DonationForm';
 // import MpesaPayment from './components/Donor/MpesaPayment'
 import MpesaPayment from './components/Donor/MpesaPayment';
+// import ClimateJusticeComponent from './components/ClimateJusticeComponent';
+import Footer from './components/Footer';
+import DirectDonation from './components/DirectDonation';
+
 
 
 
@@ -33,6 +37,7 @@ function App() {
       <Router> 
         <Routes>
           <Route exact path="/" Component={LandingPage} /> 
+          
           <Route exact path="/organization-login" Component={OrgLogin} /> 
           <Route exact path="/donor-login" Component={DonorLogin} /> 
           <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} /> 
@@ -45,6 +50,8 @@ function App() {
           <Route exact path="/admin-dashboard" Component={Dashboard} />  
           <Route exact path="/transactions" Component={DonationForm} /> 
           <Route exact path="/mpesa-transactions" Component={MpesaPayment} />
+          <Route exact path="/footer" Component={Footer} />
+          <Route exact path="/organizations" Component={DirectDonation} />
        
 
 
@@ -57,8 +64,11 @@ function App() {
         {/* <NewDonationContent/> */}
         {/* <ReminderContent/> */}
         {/* <Profilepic/> */}
+        {/* <ClimateJusticeComponent/> */}
+        {/* <Footer/> */}
         
       </Router>
+    
 
       {/* <Dashboard/> */}
         {/* <div className="my-custom-class"></div> */}
