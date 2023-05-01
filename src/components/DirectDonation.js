@@ -13,7 +13,7 @@ function DirectDonation() {
   useEffect(() => {
     const fetchOrganizations = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/organizations');
+        const response = await fetch('http://localhost:5000/organizations');
         const data = await response.json();
         setOrganizations(data);
       } catch (error) {
@@ -32,8 +32,9 @@ function DirectDonation() {
   };
 
   const filteredOrganizations = organizations.filter(orgData =>
-    orgData.name.toLowerCase().includes(searchTerm.toLowerCase())
+    orgData && orgData.name && orgData.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <>
@@ -71,23 +72,24 @@ function DirectDonation() {
                        <h3 className="text-gray-900 font-semibold text-lg mb-2">{orgData.name}</h3>
                        <p className="text-gray-600 text-sm mb-4">{orgData.description}</p>
                        <div>
-                         <p className="text-black text-sm mb-2 flex items-center">
-                           <FaPaypal className="inline-block mr-2" />
-                           Paypal:
-                           <span onClick={() => copyToClipboard(orgData.email)} className="cursor-pointer ml-2 text-blue-500 hover:underline">
-                             {orgData.email}
-                             <FaCopy className="inline-block ml-2" />
-                           </span>
-                         </p>
-                         <p className="text-black text-sm mb-2 flex items-center">
-                           <FaMobileAlt className="inline-block mr-2" />
-                           M-Pesa Express:
-                           <span onClick={() => copyToClipboard(orgData.orgShortCode)} className="cursor-pointer ml-2 text-blue-500 hover:underline">
-                             {orgData.orgShortCode}
-                             <FaCopy className="inline-block ml-2" />
-                           </span>
-                         </p>
-                       </div>
+  <p className="text-black text-sm mb-2">
+    <FaPaypal className="inline-block mr-1" />
+    Paypal:
+    <span onClick={() => copyToClipboard(orgData.email)} className="cursor-pointer ml-1" title="Copy">
+      {orgData.email}
+      <FaCopy className="inline-block ml-1" />
+    </span>
+  </p>
+  <p className="text-black text-sm mb-2">
+    <FaMobileAlt className="inline-block mr-1" />
+    M-Pesa Express:
+    <span onClick={() => copyToClipboard(orgData.orgShortCode)} className="cursor-pointer ml-1" title="Copy">
+      {orgData.orgShortCode}
+      <FaCopy className="inline-block ml-1" />
+    </span>
+  </p>
+</div>
+
                        <p className="text-black text-sm mb-2 flex items-center"><FaMapMarkerAlt  className="inline-block mr-2" />{orgData.location}</p>
                        <a href={orgData.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm mb-4 hover:underline flex items-center">
                          <FaGlobe className="inline-block mr-2" />

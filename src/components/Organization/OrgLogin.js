@@ -56,7 +56,7 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = { email, username, password };
-    fetch('/api/login', {
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function Login() {
     })
       .then(() => {
         // If the login request is successful, redirect the user to the dashboard page
-        window.location.href = `/organization-login?email=${email}&username=${username}`;
+        window.location.href = `/organization-dashboard?email=${email}&username=${username}`;
       })
       .catch(error => console.error('Error logging in:', error));
   };

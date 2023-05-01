@@ -90,7 +90,7 @@ function MyDonations() {
     <div className="bg-[#E5E4E2] p-4">
       <div className="bg-white shadow rounded-lg p-4 mb-4">
         <div className="font-bold text-lg mb-2">Total Donations Received:</div>
-        <div className="font-bold text-2xl">${totalDonations}</div>
+        <div className="font-bold text-2xl">$275{totalDonations}</div>
       </div>
       <div className="flex flex-wrap -mx-4">
         {donations.map(donation => (

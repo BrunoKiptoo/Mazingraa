@@ -206,7 +206,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/organizations');
+        const response = await fetch('http://localhost:5000/organizations');
         const data = await response.json();
         // Update state with fetched data
         setorganizations(data);
@@ -234,7 +234,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/reminders');
+        const response = await fetch('http://localhost:5000/reminders');
         const data = await response.json();
         // Update state with fetched data
         setReminders(data);
@@ -548,9 +548,9 @@ onClick={() => setSelectedContent('support')}
 
                                               
 
-<div className='flex items-center justify-center'>
+{/* <div className='flex items-center justify-center'>
   <img src='/src/assets/Mazingiralogo2.png' alt='Your Logo' className='w-20 h-20' />
-</div>
+</div> */}
 
 
 

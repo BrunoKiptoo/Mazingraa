@@ -65,4 +65,42 @@ function Login() {
 export default Login;
 
 
+// import React from 'react';
 
+// function DonorLogin({
+//   handleSubmit,
+//   email,
+//   setEmail,
+//   username,
+//   setUsername,
+//   password,
+//   setPassword,
+//   handleLogout
+// }) {
+//   return (
+//     <div>
+//       <h2>Donor Login</h2>
+//       <form onSubmit={handleSubmit}>
+//         <label>
+//           Email:
+//           <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+//         </label>
+//         <br />
+//         <label>
+//           Username:
+//           <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+//         </label>
+//         <br />
+//         <label>
+//           Password:
+//           <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+//         </label>
+//         <br />
+//         <button type="submit">Login</button>
+//       </form>
+//       <button onClick={handleLogout}>Logout</button>
+//     </div>
+//   );
+// }
+
+// export default DonorLogin;

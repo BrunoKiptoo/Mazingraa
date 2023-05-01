@@ -25,7 +25,7 @@ function MyImpact() {
     e.prstoryDefault();
   
     // POST fetch to your database
-    fetch('/api/stories', {
+    fetch('http://localhost:5000/stories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(story),
@@ -67,7 +67,7 @@ function MyImpact() {
     e.prstoryDefault();
 
     // PUT fetch to update the story
-    fetch(`/api/stories/${story.id}`, {
+    fetch(`http://localhost:5000/stories/${story.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(story),

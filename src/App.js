@@ -133,103 +133,108 @@ export default App;
 // import Footer from './components/Footer';
 // import DirectDonation from './components/DirectDonation';
 // import ThankYou from './components/Donor/ThankYou';
+
+// import { useNavigate } from 'react-router-dom';
+
+
 // function App() {
 
-//   const [authenticated, setAuthenticated] = useState(false);
-
-
-
-//   const [email, setEmail] = useState('');
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     const data = { email, username, password };
-//     fetch('/api/login', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//       credentials: 'include', // include cookies in the request
-//     })
-//       .then(() => {
-//         // If the login request is successful, redirect the user to the dashboard page
-//         setIsLoggedIn(true)
-//         window.location.href = `/donor-dashboard?email=${email}&username=${username}`;
-//         // setAuthenticated(true);
+//     const [authenticated, setAuthenticated] = useState(false);
+  
+//     const [email, setEmail] = useState('');
+//     const [username, setUsername] = useState('');
+//     const [password, setPassword] = useState('');
+//     const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+//     const handleSubmit = (event) => {
+//       event.preventDefault();
+//       const data = { email, username, password };
+//       fetch('/api/login', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+//         credentials: 'include', // include cookies in the request
 //       })
-//       .catch(error => console.error('Error logging in:', error));
-//   };
-
-//   const handleLogout = async () => {
-//     try {
-//       await fetch('http://127.0.0.1:3000/logout', { method: 'DELETE' });
-//       setIsLoggedIn(false);
-//       navigate('/login');
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+//         .then(() => {
+//           // If the login request is successful, redirect the user to the dashboard page
+//           setIsLoggedIn(true)
+//           window.location.href = `/donor-dashboard?email=${email}&username=${username}`;
+//           setAuthenticated(true); // Set authenticated to true
+//         })
+//         .catch(error => console.error('Error logging in:', error));
+//     };
+    
+  
+//     const handleLogout = async () => {
+//       try {
+//         await fetch('http://127.0.0.1:5000/logout', { method: 'DELETE' });
+//         setIsLoggedIn(false);
+//         window.location.href = '/login'; // Use window.location.href to navigate to a different URL
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
   
   
 //   return (
 //     <div className="App">
 //       <Router>
-//         <Routes>
-//             {authenticated ?
-//             <>
-//                  {/* protected routes */}
-//           <Route exact path="/donor-dashboard" Component={DonorDashBoard} />
-//           <Route exact path="/organization-dashboard" Component={OrganizationDahboard} />
-//           <Route exact path="/admin-dashboard" Component={Dashboard} />
-//            </>
-//           :
-//            <>
-//           <Route exact path="/" Component={LandingPage} />
-//           <Route exact path="/donorregistration" Component={GeneralRegistrationForm} />
-//           <Route exact path="/learnmore" Component={LearnMore} />
-//           <Route exact path="/registration" Component={GeneralRegistrationForm} />
-//           <Route exact path="/password-reset" Component={PasswordReset} />
+//       <Routes>
+//   {authenticated ? (
+//     <>
+//       {/* Protected routes */}
+//       <Route exact path="/donor-dashboard" element={DonorDashBoard} />
+//       <Route exact path="/organization-dashboard" element={OrganizationDahboard} />
+//       <Route exact path="/admin-dashboard" element={Dashboard} />
+//     </>
+//   ) : (
+//     <>
+//       {/* Public routes */}
+//       <Route exact path="/" element={LandingPage} />
+//       <Route exact path="/donorregistration" element={GeneralRegistrationForm} />
+//       <Route exact path="/learnmore" element={LearnMore} />
+//       <Route exact path="/registration" element={GeneralRegistrationForm} />
+//       <Route exact path="/password-reset" element={PasswordReset} />
 
-
-//           <Route exact path="/donor-login" Component={DonorLogin} 
-//           // isLoggedIn={isLoggedIn}
-//           handleSubmit={handleSubmit} 
-//           email={email}
-//           setmail={setEmail}
-//           username={username}
-//           setUsername={setUsername}
-//           password={password}
-//           setPassword={setPassword}
-//           handleLogout={handleLogout}
+//       {/* Protected route */}
+//       <Route
+//         exact
+//         path="/donor-login"
+//         element={
+//           <DonorLogin
+//             handleSubmit={handleSubmit}
+//             email={email}
+//             setEmail={setEmail}
+//             username={username}
+//             setUsername={setUsername}
+//             password={password}
+//             setPassword={setPassword}
+//             handleLogout={handleLogout}
 //           />
-          
+//         }
+//       />
 
-//           <Route exact path="/organization-login" Component={OrgLogin} />
-//           <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} />
+//       {/* Public routes */}
+//       <Route exact 
+//       path="/organization-login" 
+//       element={OrgLogin} />
+//       <Route
+//         exact
+//         path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz"
+//         element={AdminLogin}
+//       />
 
-
-//           <Route exact path="/transactions" Component={DonationForm} />
-//           <Route exact path="/mpesa-transactions" Component={MpesaPayment} />
-//           <Route exact path="/footer" Component={Footer} />
-//           <Route exact path="/organizations" Component={DirectDonation} />
-//           <Route exact path="/thankyou" Component={ThankYou} />
-//        </>
-//      }
-//           {/* Add other routes for other components */}
-//         </Routes>
-//         {/* <DonorNavBar/> */}
-//         {/* <NewDonationContent/> */}
-//         {/* <ReminderContent/> */}
-//         {/* <Profilepic/> */}
-//         {/* <ClimateJusticeComponent/> */}
-//         {/* <Footer/> */}
+//       <Route exact path="/transactions" element={DonationForm} />
+//       <Route exact path="/mpesa-transactions" element={MpesaPayment} />
+//       <Route exact path="/footer" element={Footer} />
+//       <Route exact path="/organizations" element={DirectDonation} />
+//       <Route exact path="/thankyou" element={ThankYou} />
+//     </>
+//   )}
+// </Routes>
 //       </Router>
-//       {/* <Dashboard/> */}
-//         {/* <div className="my-custom-class"></div> */}
 //     </div>
 //   );
 // }

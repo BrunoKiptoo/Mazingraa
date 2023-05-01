@@ -37,7 +37,7 @@ function MyImpactStories() {
 
   const handleDelete = (id) => {
     // DELETE fetch to delete the story
-    fetch(`/api/stories/${id}`, {
+    fetch(`http://localhost:5000/stories/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -79,7 +79,7 @@ function MyImpactStories() {
 
   const handleSave = () => {
     // PATCH fetch to update the story
-    fetch(`/api/stories/${selectedstory.id}`, {
+    fetch(`http://localhost:5000/stories/${selectedstory.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -176,49 +176,29 @@ function MyImpactStories() {
         <div className="inline-block impact-modal align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         style={{ width: '600px', height: '400px' }}>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 ">
-            <h2 className="text-lg font-medium mb-4">Edit story</h2>
+            {/* <h2 className="text-lg font-medium">Edit story</h2> */}
             <form>
-            <label className="block mb-2">Organization's Name:</label>
-              <input type="name" name="name" value={formData.name} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Title:</label>
-              <input name="title" value={formData.title} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Date:</label>
-              <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Time:</label>
-              <input type="time" name="time" value={formData.time} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Location:</label>
-              <input type="location" name="time" value={formData.location} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Blog URL:</label>
-              <input type="url" name="blogurl" value={formData.blogurl} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">summary:</label>
-              <textarea name="summary" value={formData.summary} onChange={handleFormChange}
-
-
-    className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" rows="4"></textarea>
-<label className="block mb-2">Image:</label>
-<input type="file" name="image" onChange={handleFormChange} className="mb-4" />
-{formData.image && (
-<div className="mt-4">
-
-</div>
-)}
-<div className="mt-4 flex justify-end">
-<button
-               type="button"
-               onClick={handleSave}
-               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2"
-             >
-Save
-</button>
-<button
-type="button"
-onClick={() => setEditModalOpen(false)}
-className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md"
->
-Cancel
-</button>
-</div>
+  <input type="name" name="name" value={formData.name} onChange={handleFormChange} placeholder="Organization's Name" className="border border-gray-300 rounded-md px-3 mb-3 w-full" />
+  <input name="title" value={formData.title} onChange={handleFormChange} placeholder="Title" className="border border-gray-300 rounded-md px-3 mb-3 w-full" />
+  <input type="date" name="date" value={formData.date} onChange={handleFormChange} placeholder="Date" className="border border-gray-300 rounded-md mb-3 px-3 w-full" />
+  <input type="time" name="time" value={formData.time} onChange={handleFormChange} placeholder="Time" className="border border-gray-300 rounded-md px-3 mb-3 w-full" />
+  <input type="location" name="location" value={formData.location} onChange={handleFormChange} placeholder="Location" className="border border-gray-300 rounded-md mb-3 px-3 w-full" />
+  <input type="url" name="blogurl" value={formData.blogurl} onChange={handleFormChange} placeholder="Blog URL" className="border border-gray-300 rounded-md mb-3 px-3 w-full" />
+  <textarea name="summary" value={formData.summary} onChange={handleFormChange} placeholder="Summary" className="border border-gray-300 rounded-md px-3 w-full"></textarea>
+  <label className="block mb-2">Image:</label>
+  <div className="flex justify-between items-center mb-2">
+    <input type="file" name="image" onChange={handleFormChange} className="" />
+    <div className="flex">
+      <button type="button" onClick={handleSave} className="bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-md mr-2">
+        Save
+      </button>
+      <button type="button" onClick={() => setEditModalOpen(false)} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 rounded-md">
+        Cancel
+      </button>
+    </div>
+  </div>
 </form>
+
 </div>
 </div>
 </div>

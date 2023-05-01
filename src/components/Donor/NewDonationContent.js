@@ -3,7 +3,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { FaPaypal, FaMobileAlt, FaCreditCard, FaEnvelope, FaGlobe, FaMapMarkerAlt, FaCopy  } from 'react-icons/fa';
+import { FaPaypal, FaMobileAlt, FaGlobe, FaMapMarkerAlt, FaCopy  } from 'react-icons/fa';
 
 
 function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
@@ -40,7 +40,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
   
   const handleAddToDonationList = async () => {
     try {
-      const response = await fetch('/addtodonationlist', {
+      const response = await fetch(' http://localhost:5000/donationList', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +49,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       });
       if (response.ok) {
         setAddedToDonationList(true);
+        console.log('Button clicked!');
       } else {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Something went wrong');
@@ -58,6 +59,13 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
       // Handle network error or error response here
     }
   };
+  
+
+  const handleAddToDonationListClick = () => {
+    setAddedToDonationList(true);
+  };
+
+
 
 
   
@@ -82,23 +90,24 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
               <h3 className="text-gray-900 font-semibold text-lg mb-2">{orgData.name}</h3>
               <p className="text-gray-600 text-sm mb-4">{orgData.description}</p>
               <div>
-      <p className="text-black text-sm mb-2">
-        <FaPaypal className="inline-block mr-1" />
-        Paypal:
-        <span onClick={() => copyToClipboard(orgData.email)} className="cursor-pointer ml-1">
-          {orgData.email}
-          <FaCopy className="inline-block ml-1" />
-        </span>
-      </p>
-      <p className="text-black text-sm mb-2">
-        <FaMobileAlt className="inline-block mr-1" />
-        M-Pesa Express:
-        <span onClick={() => copyToClipboard(orgData.orgShortCode)} className="cursor-pointer ml-1">
-          {orgData.orgShortCode}
-          <FaCopy className="inline-block ml-1" />
-        </span>
-      </p>
-    </div>
+  <p className="text-black text-sm mb-2">
+    <FaPaypal className="inline-block mr-1" />
+    Paypal:
+    <span onClick={() => copyToClipboard(orgData.email)} className="cursor-pointer ml-1" title="Copy">
+      {orgData.email}
+      <FaCopy className="inline-block ml-1" />
+    </span>
+  </p>
+  <p className="text-black text-sm mb-2">
+    <FaMobileAlt className="inline-block mr-1" />
+    M-Pesa Express:
+    <span onClick={() => copyToClipboard(orgData.orgShortCode)} className="cursor-pointer ml-1" title="Copy">
+      {orgData.orgShortCode}
+      <FaCopy className="inline-block ml-1" />
+    </span>
+  </p>
+</div>
+
               <p className="text-black text-sm mb-2"><FaMapMarkerAlt  className="inline-block mr-1" />{orgData.location}</p>
               <a href={orgData.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-sm mb-4 hover:underline">
                 <FaGlobe className="inline-block mr-1" />
@@ -131,15 +140,5 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
 }
 
 export default NewDonationContent;
-
-
-
-
-
-
-
-
-
-
 
 

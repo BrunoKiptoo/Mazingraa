@@ -219,7 +219,7 @@ function MyAddedEvents() {
 
   const handleDelete = (id) => {
     // DELETE fetch to delete the event
-    fetch(`/api/events/${id}`, {
+    fetch(`http://localhost:5000/events/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -260,7 +260,7 @@ function MyAddedEvents() {
 
   const handleSave = () => {
     // PATCH fetch to update the event
-    fetch(`/api/events/${selectedEvent.id}`, {
+    fetch(`http://localhost:5000/events/${selectedEvent.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -353,45 +353,39 @@ function MyAddedEvents() {
         <div className="inline-block impact-modal align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         style={{ width: '600px', height: '400px' }}>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <h2 className="text-lg font-medium mb-4">Edit Event</h2>
+            <h2 className="text-lg font-medium">Edit Event</h2>
             <form>
-              <label className="block mb-2">Title:</label>
-              <input name="title" value={formData.title} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Date:</label>
-              <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Time:</label>
-              <input type="time" name="time" value={formData.time} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Location:</label>
-              <input type="location" name="time" value={formData.location} onChange={handleFormChange} className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" />
-              <label className="block mb-2">Description:</label>
-              <textarea name="description" value={formData.description} onChange={handleFormChange}
+  <label className="block ">Title:</label>
+  <input name="title" value={formData.title} onChange={handleFormChange} className="border border-gray-300 rounded-md px-3 w-full" />
 
+  <label className="block ">Date:</label>
+  <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="border border-gray-300 rounded-md px-3 w-full" />
 
-    className="border border-gray-300 rounded-md py-2 px-3 mb-4 w-full" rows="4"></textarea>
-<label className="block mb-2">Poster:</label>
-<input type="file" name="poster" onChange={handleFormChange} className="mb-4" />
-{formData.poster && (
-<div className="mt-4">
+  <label className="block ">Time:</label>
+  <input type="time" name="time" value={formData.time} onChange={handleFormChange} className="border border-gray-300 rounded-md px-3 w-full" />
 
-</div>
-)}
-<div className="mt-4 flex justify-end">
-<button
-               type="button"
-               onClick={handleSave}
-               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2"
-             >
-Save
-</button>
-<button
-type="button"
-onClick={() => setEditModalOpen(false)}
-className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md"
->
-Cancel
-</button>
-</div>
+  <label className="block ">Location:</label>
+  <input type="location" name="location" value={formData.location} onChange={handleFormChange} className="border border-gray-300 rounded-md px-3 w-full" />
+
+  <label className="block">Description:</label>
+  <textarea name="description" value={formData.description} onChange={handleFormChange} className="border border-gray-300 rounded-md w-full"></textarea>
+
+  <label className="block">Poster:</label>
+  <div className="flex justify-between items-center">
+    <input type="file" name="poster" onChange={handleFormChange} className="" />
+    <div className="flex">
+      <button type="button" onClick={handleSave} className="bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-md mr-2">
+        Save
+      </button>
+      <button type="button" onClick={() => setEditModalOpen(false)} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4  rounded-md">
+        Cancel
+      </button>
+    </div>
+  </div>
+
 </form>
+
+
 </div>
 </div>
 </div>
