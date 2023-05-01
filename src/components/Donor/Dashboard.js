@@ -29,7 +29,10 @@ import {FaDonate, FaHistory, FaBell, FaHeart, FaEdit, FaSignOutAlt, FaHeartbeat,
 
 import ProfilePicture from './Profilepic';
 
-function Dashboard(props) {
+function Dashboard(props, { authenticated }) {
+  console.log("DonorDashboard rendered");
+  console.log("authenticated:", authenticated);
+  console.log("DonorDashboard rendered");
 
   
   // const [name, setName] = useState("John Doe");
@@ -59,7 +62,7 @@ function Dashboard(props) {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
  
   // const [profilePicture, setProfilePicture] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);

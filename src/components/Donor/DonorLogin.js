@@ -6,6 +6,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,4 +63,6 @@ function Login() {
 }
 
 export default Login;
+
+
 
