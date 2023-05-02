@@ -7,7 +7,7 @@ function PasswordReset() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(' http://localhost:5000/users', {
+    const response = await fetch('https://mazingira-api.onrender.com/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

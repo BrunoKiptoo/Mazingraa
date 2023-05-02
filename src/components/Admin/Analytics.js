@@ -119,11 +119,11 @@ function Analytics() {
 
   useEffect(() => {
     const formattedDate = selectedDate.toISOString().split('T')[0];
-    fetch(` http://localhost:5000/user-engagement?date=${formattedDate}`)
+    fetch(` https://mazingira-api.onrender.com/user-engagement?date=${formattedDate}`)
       .then(response => response.json())
       .then(data => setUserEngagementData(data))
       .catch(error => console.log(error));
-    fetch(` http://localhost:5000/donation-activity?date=${formattedDate}`)
+    fetch(` https://mazingira-api.onrender.com/donation-activity?date=${formattedDate}`)
       .then(response => response.json())
       .then(data => setDonationActivityData(data))
       .catch(error => console.log(error));

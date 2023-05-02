@@ -81,12 +81,12 @@ function DonorManagement() {
 
   useEffect(() => {
     // Fetch donation data from server
-    fetch(' http://localhost:5000/donation-data')
+    fetch(' https://mazingira-api.onrender.com/donation-data')
       .then(response => response.json())
       .then(data => setDonationData(data));
 
     // Fetch organization data from server
-    fetch(' http://localhost:5000/organization-data')
+    fetch(' https://mazingira-api.onrender.com/organization-data')
       .then(response => response.json())
       .then(data => setOrganizationData(data));
   }, []);

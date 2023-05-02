@@ -259,7 +259,7 @@ const handleStatusChange = (applicationId, newStatus) => {
   updatedApplication.email = updatedApplication.email || '';
   updatedApplication.website = updatedApplication.website || '';
   
-  fetch(` http://localhost:5000/applications/${applicationId}`, {
+  fetch(` https://mazingira-api.onrender.com/applications/${applicationId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -276,7 +276,7 @@ const handleStatusChange = (applicationId, newStatus) => {
   status: 'active',
         };
         console.log('newOrganization:', newOrganization); // add this line to check newOrganization
-        fetch(' http://localhost:5000/organizations', {
+        fetch(' https://mazingira-api.onrender.com/organizations', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

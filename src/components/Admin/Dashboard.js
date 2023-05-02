@@ -105,7 +105,7 @@ function Dashboard(props) {
   }
 
   const handleSaveClick = () => {
-    fetch(' http://localhost:5000/users', {
+    fetch(' https://mazingira-api.onrender.com/users', {
       method: 'PATCH',
       body: JSON.stringify({
         email: email,

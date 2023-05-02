@@ -10,7 +10,7 @@ function Notifications() {
 
 
 useEffect(() => {
-    fetch(' http://localhost:5000/notifications')
+    fetch(' https://mazingira-api.onrender.com/notifications')
       .then(res => res.json())
       .then(data => {
         const notificationsWithDate = data.map(notification => {
@@ -26,7 +26,7 @@ useEffect(() => {
   
 
   const handleDeleteNotification = (id) => {
-    fetch(` http://localhost:5000/notifications/${id}`, {
+    fetch(` https://mazingira-api.onrender.com/notifications/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -38,7 +38,7 @@ useEffect(() => {
   };
 
   const handleClearNotifications = () => {
-    fetch(' http://localhost:5000/notifications', {
+    fetch(' https://mazingira-api.onrender.com/notifications', {
       method: 'DELETE'
     })
       .then(res => res.json())

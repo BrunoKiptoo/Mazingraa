@@ -21,7 +21,7 @@ function PaymentForm() {
   function handleSubmit(event) {
     event.preventDefault();
     const transaction = { phoneNumber, amount };
-    fetch(' http://localhost:5000/donations', {
+    fetch(' https://mazingira-api.onrender.com/donations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(transaction)

@@ -40,7 +40,7 @@ function NewDonationContent({ organization, onDonate, onAddToDonationList }) {
   
   const handleAddToDonationList = async () => {
     try {
-      const response = await fetch(' http://localhost:5000/donationList', {
+      const response = await fetch(' https://mazingira-api.onrender.com/donationList', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -141,7 +141,7 @@ function BeneficiaryStoriesContent() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(' http://localhost:5000/stories');
+      const response = await fetch(' https://mazingira-api.onrender.com/stories');
       const data = await response.json();
       setStories(data);
     } catch (error) {
@@ -155,7 +155,7 @@ function BeneficiaryStoriesContent() {
 
   const handleLike = async (storyId) => {
     try {
-      const response = await fetch(` http://localhost:5000/stories/${storyId}/like`, {
+      const response = await fetch(` https://mazingira-api.onrender.com/stories/${storyId}/like`, {
         method: 'POST',
       });
       const data = await response.json();
@@ -167,7 +167,7 @@ function BeneficiaryStoriesContent() {
 
   const handleDislike = async (storyId) => {
     try {
-      const response = await fetch(` http://localhost:5000/stories/${storyId}/dislike`, {
+      const response = await fetch(`https://mazingira-api.onrender.com/stories/${storyId}/dislike`, {
         method: 'POST',
       });
       const data = await response.json();
@@ -179,7 +179,7 @@ function BeneficiaryStoriesContent() {
 
   const handleDelete = async (storyId) => {
     try {
-      await fetch(` http://localhost:5000/stories/${storyId}`, {
+      await fetch(` https://mazingira-api.onrender.com/stories/${storyId}`, {
         method: 'DELETE',
       });
       setStories(stories.filter((story) => story.id !== storyId));

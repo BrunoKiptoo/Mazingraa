@@ -53,7 +53,7 @@ function ContentManagement() {
   }
 
   function handleEventDelete(id) {
-    fetch(` http://localhost:5000/events/${id}`, {
+    fetch(` https://mazingira-api.onrender.com/events/${id}`, {
       method: 'DELETE',
     })
       .then(() => setEvents(events.filter(event => event.id !== id)))
@@ -61,7 +61,7 @@ function ContentManagement() {
   }
 
   function handleStoryDelete(id) {
-    fetch(` http://localhost:5000/stories/${id}`, {
+    fetch(` https://mazingira-api.onrender.com/stories/${id}`, {
       method: 'DELETE',
     })
       .then(() => setStories(stories.filter(story => story.id !== id)))
