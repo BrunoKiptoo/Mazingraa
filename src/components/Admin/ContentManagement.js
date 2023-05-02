@@ -9,35 +9,35 @@ function ContentManagement() {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch(' http://localhost:5000/pages')
+    fetch(' https://mazingira-api.onrender.com/pages')
       .then(response => response.json())
       .then(data => setPages(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch(' http://localhost:5000/posts')
+    fetch(' https://mazingira-api.onrender.com/posts')
       .then(response => response.json())
       .then(data => setPosts(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch(' http://localhost:5000/events')
+    fetch(' https://mazingira-api.onrender.com/events')
       .then(response => response.json())
       .then(data => setEvents(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch(' http://localhost:5000/stories')
+    fetch(' https://mazingira-api.onrender.com/stories')
       .then(response => response.json())
       .then(data => setStories(data))
       .catch(error => console.error(error));
   }, []);
 
   function handlePageDelete(id) {
-    fetch(` http://localhost:5000/pages/${id}`, {
+    fetch(` https://mazingira-api.onrender.com/pages/${id}`, {
       method: 'DELETE',
     })
       .then(() => setPages(pages.filter(page => page.id !== id)))
@@ -45,7 +45,7 @@ function ContentManagement() {
   }
 
   function handlePostDelete(id) {
-    fetch(` http://localhost:5000/posts/${id}`, {
+    fetch(` https://mazingira-api.onrender.com/posts/${id}`, {
       method: 'DELETE',
     })
       .then(() => setPosts(posts.filter(post => post.id !== id)))
