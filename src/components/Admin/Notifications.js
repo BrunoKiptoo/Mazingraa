@@ -237,7 +237,7 @@ function Notifications() {
   const [sendToAll, setSendToAll] = useState(true);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/notifications')
+    fetch(' http://localhost:5000/notifications')
       .then(res => res.json())
       .then(data => {
         const notificationsWithDate = data.map(notification => {
@@ -252,7 +252,7 @@ function Notifications() {
   }, []);
 
   const handleDeleteNotification = (id) => {
-    fetch(`https://mazingira-api.onrender.com/notifications/${id}`, {
+    fetch(` http://localhost:5000/notifications/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -264,7 +264,7 @@ function Notifications() {
   };
 
   const handleClearNotifications = () => {
-    fetch('https://mazingira-api.onrender.com/notifications', {
+    fetch(' http://localhost:5000/notifications', {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -287,9 +287,9 @@ function Notifications() {
     event.preventDefault();
     let url;
     if (sendToAll) {
-      url = 'https://mazingira-api.onrender.com/notifications/all';
+      url = ' http://localhost:5000/notifications/all';
     } else {
-      url = `https://mazingira-api.onrender.com/notifications/${formData.reciever}`;
+      url = ` http://localhost:5000/notifications/${formData.reciever}`;
     }
     fetch(url, {
       method: 'POST',

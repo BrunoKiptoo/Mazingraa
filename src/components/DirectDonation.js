@@ -13,7 +13,7 @@ function DirectDonation() {
   useEffect(() => {
     const fetchOrganizations = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/organizations');
+        const response = await fetch(' http://localhost:5000/organizations');
         const data = await response.json();
         setOrganizations(data);
       } catch (error) {

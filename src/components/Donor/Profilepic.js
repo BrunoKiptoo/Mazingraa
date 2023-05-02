@@ -99,7 +99,7 @@ function ProfilePicture({ initialProfilePicture }) {
   };
 
   const saveProfilePicture = (profilepic) => {
-    fetch(" https://mazingira-api.onrender.com/users", {
+    fetch(" http://localhost:5000/users", {
       method: "POST",
       body: JSON.stringify({ profilepic }),
       headers: {
@@ -112,7 +112,7 @@ function ProfilePicture({ initialProfilePicture }) {
   };
 
   const getProfilePicture = () => {
-    fetch("https://mazingira-api.onrender.com/users")
+    fetch(" http://localhost:5000/users")
       .then((response) => response.json())
       .then((data) => setProfilePicture(data.profilepic))
       .catch((error) => console.log(error));

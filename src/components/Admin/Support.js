@@ -570,7 +570,7 @@ function AdminSupport() {
   const [attachment, setAttachment] = useState(null);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/messages')
+    fetch(' http://localhost:5000/messages')
       .then((res) => res.json())
       .then((data) => setMessages(data))
       .catch((error) => console.error(error));
@@ -592,7 +592,7 @@ function AdminSupport() {
       attachment: attachment,
       createdAt: new Date(),
     };
-    fetch('https://mazingira-api.onrender.com/messages', {
+    fetch(' http://localhost:5000/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

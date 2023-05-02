@@ -95,7 +95,7 @@ function Dashboard(props, { authenticated }) {
   }
 
   const handleSaveClick = () => {
-    fetch('https://mazingira-api.onrender.com/user', {
+    fetch(' http://localhost:5000/user', {
       method: 'PATCH',
       body: JSON.stringify({
         email: email,
@@ -206,7 +206,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/organizations');
+        const response = await fetch(' http://localhost:5000/organizations');
         const data = await response.json();
         // Update state with fetched data
         setorganizations(data);
@@ -234,7 +234,7 @@ const handleAddToDonationList = (orgId) => {
     // Fetch organizations data from backend API
     const fetchData = async () => {
       try {
-        const response = await fetch('https://mazingira-api.onrender.com/reminders');
+        const response = await fetch(' http://localhost:5000/reminders');
         const data = await response.json();
         // Update state with fetched data
         setReminders(data);
@@ -281,7 +281,7 @@ const [profilePicture, setProfilePicture] = useState("");
     // Fetch details of each organization using its ID
     orgIds.forEach(async (orgId) => {
       try {
-        const response = await fetch(`https://mazingira-api.onrender.com/organizations/${orgId}`);
+        const response = await fetch(` http://localhost:5000/organizations/${orgId}`);
         const data = await response.json();
         console.log('Organization details:', data);
         // Add code here to update the UI with the organization details
@@ -307,7 +307,7 @@ const handleBeneficiaryClick = () => {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch('https://mazingira-api.onrender.com/stories');
+      const response = await fetch(' http://localhost:5000/stories');
       const data = await response.json();
       setStories(data);
     } catch (error) {

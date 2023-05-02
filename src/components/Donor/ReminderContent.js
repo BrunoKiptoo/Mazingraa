@@ -87,7 +87,7 @@ function ReminderContent({ reminder, onReminder }) {
     onReminder(reminder);
     setAddedToReminder(true);
 
-    const response = await fetch(' https://mazingira-api.onrender.com/reminders', {
+    const response = await fetch(' http://localhost:5000/reminders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

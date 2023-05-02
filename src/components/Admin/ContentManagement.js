@@ -9,35 +9,35 @@ function ContentManagement() {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/pages')
+    fetch(' http://localhost:5000/pages')
       .then(response => response.json())
       .then(data => setPages(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/posts')
+    fetch(' http://localhost:5000/posts')
       .then(response => response.json())
       .then(data => setPosts(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/events')
+    fetch(' http://localhost:5000/events')
       .then(response => response.json())
       .then(data => setEvents(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('https://mazingira-api.onrender.com/stories')
+    fetch(' http://localhost:5000/stories')
       .then(response => response.json())
       .then(data => setStories(data))
       .catch(error => console.error(error));
   }, []);
 
   function handlePageDelete(id) {
-    fetch(`https://mazingira-api.onrender.com/pages/${id}`, {
+    fetch(` http://localhost:5000/pages/${id}`, {
       method: 'DELETE',
     })
       .then(() => setPages(pages.filter(page => page.id !== id)))
@@ -45,7 +45,7 @@ function ContentManagement() {
   }
 
   function handlePostDelete(id) {
-    fetch(`https://mazingira-api.onrender.com/posts/${id}`, {
+    fetch(` http://localhost:5000/posts/${id}`, {
       method: 'DELETE',
     })
       .then(() => setPosts(posts.filter(post => post.id !== id)))
@@ -53,7 +53,7 @@ function ContentManagement() {
   }
 
   function handleEventDelete(id) {
-    fetch(`https://mazingira-api.onrender.com/events/${id}`, {
+    fetch(` http://localhost:5000/events/${id}`, {
       method: 'DELETE',
     })
       .then(() => setEvents(events.filter(event => event.id !== id)))
@@ -61,7 +61,7 @@ function ContentManagement() {
   }
 
   function handleStoryDelete(id) {
-    fetch(`https://mazingira-api.onrender.com/stories/${id}`, {
+    fetch(` http://localhost:5000/stories/${id}`, {
       method: 'DELETE',
     })
       .then(() => setStories(stories.filter(story => story.id !== id)))

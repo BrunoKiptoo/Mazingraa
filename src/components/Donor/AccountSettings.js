@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
     const handleDeleteAccount = async (userId) => {
       try {
         // Send DELETE request to server's API to delete user by ID
-        const response = await fetch(`https://mazingira-api.onrender.com/users/${userId}`, {
+        const response = await fetch(` http://localhost:5000/users/${userId}`, {
           method: 'DELETE'
         });
     
@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
           console.log('User deleted successfully!');
     
           // Log the user out and redirect to registration page
-          await fetch('https://mazingira-api.onrender.com/auth/logout', {
+          await fetch(' http://localhost:5000/auth/logout', {
             method: 'POST'
           });
           window.location.href = '/registration';
