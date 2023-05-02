@@ -29,7 +29,7 @@ function MyImpactStories() {
 
   useEffect(() => {
     // fetch stories from your database
-    fetch('http://localhost:5000/stories')
+    fetch('https://mazingira-api.onrender.com/stories')
       .then(response => response.json())
       .then(data => setstories(data))
       .catch(error => console.log(error));
@@ -37,7 +37,7 @@ function MyImpactStories() {
 
   const handleDelete = (id) => {
     // DELETE fetch to delete the story
-    fetch(`http://localhost:5000/stories/${id}`, {
+    fetch(`https://mazingira-api.onrender.com/stories/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -79,7 +79,7 @@ function MyImpactStories() {
 
   const handleSave = () => {
     // PATCH fetch to update the story
-    fetch(`http://localhost:5000/stories/${selectedstory.id}`, {
+    fetch(`https://mazingira-api.onrender.com/stories/${selectedstory.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

@@ -25,6 +25,7 @@ import MpesaPayment from './components/Donor/MpesaPayment';
 import Footer from './components/Footer';
 import DirectDonation from './components/DirectDonation';
 import ThankYou from './components/Donor/ThankYou';
+// import Login from './components/Login';
 
 
 
@@ -64,7 +65,8 @@ function App() {
 
           <Route exact path="/donor-login" Component={DonorLogin} onLogin={handleLogin}/>
           <Route exact path="/organization-login" Component={OrgLogin} /> 
-          <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} />  
+          <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} />
+          <Route exact path="/login" Component={Login} onLogin={handleLogin}/>  
           
       
 

@@ -187,7 +187,7 @@ const [newApplication, setNewApplication] = useState({ name: '', email: '', webs
 
 useEffect(() => {
 setLoading(true);
-fetch('http://localhost:5000/applications')
+fetch('https://mazingira-api.onrender.com/applications')
 .then(res => res.json())
 .then(data => {
 setApplications(data);
@@ -208,7 +208,7 @@ setNewApplication(applicationToEdit);
 const handleSaveClick = () => {
 setLoading(true);
 const method = editingApplicationId ? 'PUT' : 'POST';
-const url = editingApplicationId ? `http://localhost:5000/applications/${editingApplicationId}` : 'http://localhost:5000/applications';
+const url = editingApplicationId ? `https://mazingira-api.onrender.com/applications/${editingApplicationId}` : 'https://mazingira-api.onrender.com/applications';
 fetch(url, {
 method,
 headers: {
@@ -234,7 +234,7 @@ setLoading(false);
 
 const handleDeleteClick = applicationId => {
 setLoading(true);
-fetch('http://localhost:5000/applications/${applicationId}', { method: 'DELETE' })
+fetch('https://mazingira-api.onrender.com/applications/${applicationId}', { method: 'DELETE' })
 .then(() => {
 const updatedApplications = applications.filter(application => application.id !== applicationId);
 setApplications(updatedApplications);
@@ -259,7 +259,7 @@ const handleStatusChange = (applicationId, newStatus) => {
   updatedApplication.email = updatedApplication.email || '';
   updatedApplication.website = updatedApplication.website || '';
   
-  fetch(`http://localhost:5000/applications/${applicationId}`, {
+  fetch(`https://mazingira-api.onrender.com/applications/${applicationId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -276,7 +276,7 @@ const handleStatusChange = (applicationId, newStatus) => {
   status: 'active',
         };
         console.log('newOrganization:', newOrganization); // add this line to check newOrganization
-        fetch('http://localhost:5000/organizations', {
+        fetch('https://mazingira-api.onrender.com/organizations', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ function Support() {
   
 
   useEffect(() => {
-    fetch('http://localhost:5000/messages')
+    fetch('https://mazingira-api.onrender.com/messages')
       .then((res) => res.json())
       .then((data) => setMessages(data))
       .catch((error) => console.error(error));
@@ -31,7 +31,7 @@ function Support() {
       attachment: attachment,
       createdAt: new Date(),
     };
-    fetch('http://localhost:5000/messages', {
+    fetch('https://mazingira-api.onrender.com/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

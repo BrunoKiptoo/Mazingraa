@@ -69,11 +69,11 @@ function MyDonations() {
 
   useEffect(() => {
     async function fetchDonations() {
-      const donationsResponse = await fetch('http://localhost:5000/donations', { method: 'GET' });
+      const donationsResponse = await fetch('https://mazingira-api.onrender.com/donations', { method: 'GET' });
       const donationsData = await donationsResponse.json();
       setDonations(donationsData);
 
-      const totalResponse = await fetch('http://localhost:5000/total', { method: 'GET' });
+      const totalResponse = await fetch('https://mazingira-api.onrender.com/total', { method: 'GET' });
       const totalData = await totalResponse.json();
       setTotalDonations(totalData.totalAmount);
     }

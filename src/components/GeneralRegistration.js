@@ -448,7 +448,7 @@ function GeneralRegistration() {
 
     if (Object.keys(errors).length === 0) {
       if (registrationType === 'donor') {
-        fetch('http://localhost:5000/users', {
+        fetch('https://mazingira-api.onrender.com/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -471,7 +471,7 @@ function GeneralRegistration() {
             console.error(error);
           });
       } else if (registrationType === 'organization') {
-        fetch('http://localhost:5000/applications', {
+        fetch('https://mazingira-api.onrender.com/applications', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

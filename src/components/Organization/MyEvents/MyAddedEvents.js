@@ -211,7 +211,7 @@ function MyAddedEvents() {
 
   useEffect(() => {
     // fetch events from your database
-    fetch('http://localhost:5000/events')
+    fetch('https://mazingira-api.onrender.com/events')
       .then(response => response.json())
       .then(data => setEvents(data))
       .catch(error => console.log(error));
@@ -219,7 +219,7 @@ function MyAddedEvents() {
 
   const handleDelete = (id) => {
     // DELETE fetch to delete the event
-    fetch(`http://localhost:5000/events/${id}`, {
+    fetch(`https://mazingira-api.onrender.com/events/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -260,7 +260,7 @@ function MyAddedEvents() {
 
   const handleSave = () => {
     // PATCH fetch to update the event
-    fetch(`http://localhost:5000/events/${selectedEvent.id}`, {
+    fetch(`https://mazingira-api.onrender.com/events/${selectedEvent.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

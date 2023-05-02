@@ -25,7 +25,7 @@ function MyImpact() {
     e.prstoryDefault();
   
     // POST fetch to your database
-    fetch('http://localhost:5000/stories', {
+    fetch('https://mazingira-api.onrender.com/stories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(story),
@@ -67,7 +67,7 @@ function MyImpact() {
     e.prstoryDefault();
 
     // PUT fetch to update the story
-    fetch(`http://localhost:5000/stories/${story.id}`, {
+    fetch(`https://mazingira-api.onrender.com/stories/${story.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(story),
@@ -127,29 +127,33 @@ function MyImpact() {
     />
   </div>
 
-  <div className="flex flex-col mt-4">
-    <label htmlFor="blog-url" className="text-lg font-medium leading-6 text-gray-900">BLOG URL</label>
-    <input
-      type="blog"
-      name="blog-url"
-      value={story.blogurl}
-      onChange={handleChange}
-      className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
-      placeholder="Enter your Blog URL"
-    />
-  </div>
 
-  <div className="flex flex-col mt-4">
-    <label htmlFor="name" className="text-lg font-medium leading-6 text-gray-900">Organization's name</label>
-    <input
-      type="name"
-      name="name"
-      value={story.name}
-      onChange={handleChange}
-      className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
-      placeholder="Enter your organization's name"
-    />
-  </div>
+<div className="flex flex-col mt-4">
+  <label htmlFor="name" className="text-lg font-medium leading-6 text-gray-900">Organization's name</label>
+  <input
+    type="text"
+    name="name"
+    value={story.name}
+    onChange={handleChange}
+    className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
+    placeholder="Enter your organization's name"
+  />
+</div>
+
+
+{/* <div className="flex flex-col mt-4">
+  <label htmlFor="blog-url" className="text-lg font-medium leading-6 text-gray-900">BLOG URL</label>
+  <input
+    type="text"
+    name="blog-url"
+    value={story.blogurl}
+    onChange={handleChange}
+    className="mt-2 text-lg p-2 border border-gray-300 rounded-md"
+    placeholder="Enter your Blog URL"
+  />
+</div> */}
+
+
 
  
   <div className="flex flex-col mt-4">
