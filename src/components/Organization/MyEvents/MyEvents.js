@@ -26,7 +26,7 @@ function MyEvents() {
     e.preventDefault();
   
     // POST fetch to your database
-    fetch('https://mazingira-api.onrender.com/events', {
+    fetch('http://localhost:5000/events', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(event),
@@ -69,7 +69,7 @@ function MyEvents() {
     e.preventDefault();
 
     // PUT fetch to update the event
-    fetch(`https://mazingira-api.onrender.com/events/${event.id}`, {
+    fetch(`  http://localhost:5000/events/${event.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(event),

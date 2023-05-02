@@ -65,7 +65,7 @@ function App() {
 
           <Route exact path="/donor-login" Component={DonorLogin} onLogin={handleLogin}/>
           <Route exact path="/organization-login" Component={OrgLogin} /> 
-          <Route exact path="/admin-huhfuhfhdfhdhlfhjfdhzkjfdzfdhhzfzhhfzzhuzfuzfzhuhfz" Component={AdminLogin} />
+          <Route exact path="/admin-login" Component={AdminLogin} />
           <Route exact path="/login" Component={Login} onLogin={handleLogin}/>  
           
       
